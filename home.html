@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MMRCL</title>
+	
+	
+	
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  
+  
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v2.3.0/mapbox.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v2.3.0/mapbox.css" rel="stylesheet">
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js"></script>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css" />
+	
+	
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css">
+    <link rel="stylesheet" href="Src/ol-layerswitcher.css" />
+    <link rel="stylesheet" href="Src/layerswitcher.css" />
+    <link rel="stylesheet" href="dist/ol-ext.css" />
+
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <style>
+
+#map { height : 100%; }
+			.legend { background : white; line-height : 1.5em}
+			.legend i { width : 5em; float : left }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+      
+p {outline-color:green;}
+p.solid {outline-style: solid;}
+
+
+
+
+
+        #rcorners2 {
+            border-radius: 10px;
+            height: 5px;
+        }
+
+        .btn {
+            color: white;
+        }
+
+            .btn:hover {
+                color: #C0C0C0;
+            }
+
+        #grad4 {
+            height: auto;
+            background-image: linear-gradient(to right, rgba(34,139,34,1),rgba(0,0,0,0), rgba(34,139,34,1));
+        }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 450px; /* Should be removed. Only for demonstration */
+}
+
+/* Left and right column */
+.column.side {
+  width: 30%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 70%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+ 
+table, th, td {
+  border: 1px solid black;
+}
+  
+
+
+
+
+		
+		
+    </style>
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="grad4">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
+
+                <li>
+                    <h1><a href="dashboard.html" class="text-lg" style="color:#6d2077">MMRCL Dashboard</a></h1>
+                </li>
+            </ul>
+
+
+            <!-- SEARCH FORM -->
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <ion-icon name="chatbubbles-outline" size="large" style="color: white" ;></ion-icon>
+                        <span class="badge badge-danger navbar-badge">1</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Site Engineer
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Completed stage 2</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                          
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <ion-icon name="notifications-outline" size="large" style="color: white" ;></ion-icon>
+                        <span class="badge badge-warning navbar-badge">2</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">2 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 2 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                     
+
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-link">
+                <img src="images/logo.png" alt="Covid-19" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">MMRCL Dashboard</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="index.php" class="d-block">Logout</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Home
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./home.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content" Style="height:auto" id="content">
+                <div class="container-fluid">
+                    <div class="row mb-8">
+                        <div class="col-sm-3">
+                            <h1 class="m-0 text-dark" id="location">MML-3 Overview</h1>	
+                        </div>
+                       <div style="background-color:blue;color:white;padding:4px;"> <h2>Planned:</h2></div>
+						<div style="background-color:blue;color:white;padding:4px;" id="Planned"> <h2>81.2%</h2></div>
+						<div style="background-color:red;color:white;padding:4px;"> <h2>Actual:</h2></div>						
+						<div style="background-color:red;color:white;padding:4px;" id="Actual"> <h2>53.3%</h2></div>	
+						
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+
+ 
+     		<div class="row">
+  
+  
+  <div class="column middle" style="background-color:#bbb;">
+
+<p>Resize the browser window to see the responsive effect.</p>
+ <!-- civil Projects -->
+            <div class="card card-danger">
+              <div class="card-header" Style="background-color:#a233b0">
+                <h3 class="card-title">Civil Projects</h3>
+
+                <div class="card-tools">
+                 
+                </div>
+              </div>
+              <div class="card-body">
+ <table>
+  <tr>
+    <th>Delay Today</th>
+    <th>Delay Last Month</th>
+  </tr>
+  <tr>
+    <td><div style="background-color:red;color:white;padding:1px;"> <h2>-2 Months</h2></div></td>
+    <td><div style="background-color:red;color:white;padding:1px;"> <h2>-3 Months</h2></td>
+  </tr>
+  <tr>
+    <td><div style="background-color:orange;color:white;padding:1px;"> <h2>-4 Months</h2></div></td>
+    <td><div style="background-color:orange;color:white;padding:1px;"> <h2>-4 Months</h2></td>
+  </tr>
+ 
+</table>
+                <canvas id="pieChart" style="min-height: 120px; height: 120px; max-height: 120px; max-width: 100%;"></canvas>
+				
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card -->
+  </div>
+  <div class="column side" style="background-color:#ccc;">
+  <div id= "map"></div></div>
+</div>        
+        </div>
+
+
+        </section>
+
+        <!-- /.control-sidebar -->
+    </div>
+	
+	
+    <!-- ./wrapper -->
+    <footer class="main-footer" Style="position:fixed;  bottom:0; width:100%">
+        <img src="dist/img/binary.png" style="height:auto" data-toggle="tooltip" title="www.evio.in">
+        <div class="float-right d-none d-sm-inline-block" Style="color:#00338d">
+            <b>Designed by KPMG Disaster Management Team</b>
+        </div>
+    </footer>
+
+ 
+ <script src="leaflet-bing-layer.js"></script>
+    <script>
+    
+    </script>
+  <script src="./dist/js/C3chartjs.js"></script>
+   <script src="./dist/js/map.js"></script>
+</body>
+</html>
