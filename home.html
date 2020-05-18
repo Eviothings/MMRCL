@@ -57,6 +57,9 @@
 	<script src="./Line Chart_files/Chart.min.js.download"></script>
 	<script src="./Line Chart_files/utils.js.download"></script>
 	
+     <!-- Progress chart w3schools -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	
     <style>
  
@@ -190,8 +193,8 @@ table, th, td {
         
         .graph_container{
   display:block;
-  width:190px;
-           height:180px;
+  width:100px;
+           height:50px;
 }
 
 
@@ -334,15 +337,20 @@ table, th, td {
             <!-- Content Header (Page header) -->
             <!-- /.content-header -->
             <!-- Main content -->
-    <section class="content" Style="height:auto" id="content">
+    <section class="content" Style="height:20px" id="content">
                 <div class="container-fluid">
                     <div class="row mb-8">
-                        <div class="col-sm-3">
+                      
+                        <div class="col-sm-4">
                             <h3 class="m-0 text-dark" id="location">MML-3 Overview</h3>	
                         </div>
-						<div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h2>68</h2></div>					
-						<div style="background-color:red;color:white;padding:4px;" id="id2"> <h2>59</h2></div>	
-					    <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h2>51</h2></div>	
+                          <div class="col-sm-2">
+                            </div>
+                          <div class="col-sm-2">
+                            </div>
+						<div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div>					
+						<div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	
+					    <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div>	
                     </div><!-- /.col -->
                 </div><!-- /.row -->
  
@@ -363,7 +371,7 @@ table, th, td {
                   
                   <div class="row mb-8">
                         <div class="col-sm-3">
-                            <h5 class="m-0 text-white" id="location">Civil Projects</h5>
+                            <h7 class="m-0 text-white" id="location">Civil Projects</h7>
                         </div>
 
                         <div class="col-sm-5">
@@ -401,12 +409,12 @@ table, th, td {
                       <th>Delay Last Month</th>
                       </tr>
                       <tr>
-                       <td><div style="background-color:red;color:white;padding:1px;"> <h2>-2 Months</h2></div></td>
-                       <td><div style="background-color:red;color:white;padding:1px;"> <h2>-3 Months</h2> </div></td>
+                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>-2 Months</h9></div></td>
+                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>-3 Months</h9> </div></td>
                        </tr>
                         <tr>
-                        <td><div style="background-color:orange;color:white;padding:1px;"> <h2>-4 Months</h2></div></td>
-                        <td><div style="background-color:orange;color:white;padding:1px;"> <h2>-4 Months</h2> </div></td>
+                        <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9></div></td>
+                        <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9> </div></td>
                          </tr>
                          </table>
          </div>
@@ -434,7 +442,7 @@ table, th, td {
             <div class="card-body">  
                    <h5 >S Curv</h5>
 			   <div style="width:100%;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-		<canvas id="canvas1" style="display: block; width: 100px; height: 100px;" width="100" height="100" class="chartjs-render-monitor"></canvas>
+		<canvas id="canvas1" style="display: block; width: 100px; height: 100px;" width="100" height="50" class="chartjs-render-monitor"></canvas>
 	            </div>
               </div> 
             </div>
@@ -611,9 +619,21 @@ table, th, td {
                       
                          </table>
          </div>
- 
+      <!-- Progress Bar -->        
+   <div class="col-md-3">
+        <h5>Rounded Progress Bars</h5>
+ <div class="w3-light-grey w3-round">
+    <div class="w3-container w3-blue w3-round" style="width:60%">60%</div>
+  </div><br>
 
+  <div class="w3-light-grey w3-round-large">
+    <div class="w3-container w3-orange w3-round-large" style="width:55%">55%</div>
+  </div><br>
 
+  <div class="w3-light-grey w3-round-xlarge">
+    <div class="w3-container w3-red w3-round-xlarge" style="width:70%">70%</div>
+  </div>
+ </div>
               </div>
             </div>
            </div>
@@ -663,7 +683,7 @@ function drawChart() {
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'title':' ', 'width':200, 'height':180};
+  var options = {'title':' ', 'width':100, 'height':50};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
