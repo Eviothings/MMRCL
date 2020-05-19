@@ -63,6 +63,14 @@
 	
     <style>
  
+        .dot {
+  height: 20px;
+  width: 20px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+}
+        
 $bg: teal;
 $meter-size: 2rem;
 .container {
@@ -216,10 +224,10 @@ table, th, td {
                 </li>
 
                 <li>
-                    <h1><a href="dashboard.html" class="text-lg" style="color:#6d2077">MMRCL Dashboard</a></h1>
+                    <h1><a href="dashboard.html" class="text-lg" style="color:#6d2077">MMRCL Dashboard  </a></h1>
                 </li>
                   <li>
-                    <h1><a href="civilpackage1.html" class="text-lg" style="color:#6d2077">Civil Package</a></h1>
+                    <h1><a href="civilpackage1.html" class="text-lg" style="color:#6d2077">  </a></h1>
                 </li>
             </ul>
 
@@ -389,9 +397,33 @@ table, th, td {
                 </div>
               </div>
            
-              <div class="card-body">
+              <div class="card-body" >
  
+          <div class="col-md-3" >
 
+
+		  
+		  
+		  <table>
+                     
+                      <tr>
+                         					
+						
+				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P1"> <h5>P1</h5></div></td>	
+                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
+                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
+                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
+                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
+                       </tr>
+                        <tr>
+                        <td><span class="dot"></span></td>	
+                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
+                        <td><span class="dot"></span></td>
+                       <td><span class="dot"></span>	</td>
+                       <td>   <span class="dot"></span></td>
+                         </tr>
+        </table>
+         </div>
   
 		
      <div class="container-fluid">
@@ -414,7 +446,7 @@ table, th, td {
                         <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9></div></td>
                         <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9> </div></td>
                          </tr>
-                         </table>
+        </table>
          </div>
  
 
@@ -730,13 +762,13 @@ function drawChart() {
 							tooltipFormat: 'll HH:mm'
 						},
 						scaleLabel: {
-							display: true,
+							display: false,
 							labelString: 'Date'
 						}
 					}],
 					yAxes: [{
 						scaleLabel: {
-							display: true,
+							display: false,
 							labelString: 'value'
 						}
 					}]
@@ -1171,4 +1203,7 @@ if ( defValue < 50 ) {
   });
 }
       </script>
+            </div>   
+          </div>
+            </body>
 </html>
