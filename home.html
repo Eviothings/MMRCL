@@ -99,7 +99,7 @@ $meter-size: 2rem;
 }
 	
 	
-#map { height : 100%; }
+#map { height : 80%; }
 			.legend { background : white; line-height : 1.5em}
 			.legend i { width : 5em; float : left }
 
@@ -162,12 +162,12 @@ body {
 
 /* Left and right column */
 .column.side {
-  width: 25%;
+  width:0%;
 }
 
 /* Middle column */
 .column.middle {
-  width: 75%;
+  width: 100%;
 }
 
 /* Clear floats after the columns */
@@ -342,7 +342,7 @@ table, th, td {
             <!-- /.content-header -->
             <!-- Main content -->
     <section class="content" Style="height:20px" id="content">
-                <div class="container-fluid">
+          <!--      <div class="container-fluid">
                     <div class="row mb-8">
                       
                         <div class="col-sm-4">
@@ -355,8 +355,8 @@ table, th, td {
 						<div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div>					
 						<div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	
 					    <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div>	
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                    </div><!-- /.col
+                </div><!-- /.row --> 
  
         
 
@@ -366,7 +366,7 @@ table, th, td {
   
   <div class="column middle" style="background-color:#FFFFFF;">
        
-
+  <div id= "map"></div>
  <!-- civil Projects -->
             <div class="card card-danger">
               <div class="card-header" Style="background-color:#a233b0">
@@ -1478,6 +1478,7 @@ if ( defValue < 50 ) {
   });
 }
       </script>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </div>     
         
  </body>
