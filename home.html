@@ -57,6 +57,8 @@
 	<script src="./Line Chart_files/Chart.min.js.download"></script>
 	<script src="./Line Chart_files/utils.js.download"></script>
 	
+    
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
      <!-- Progress chart w3schools -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -99,7 +101,7 @@ $meter-size: 2rem;
 }
 	
 	
-#map { height : 80%; }
+#map { height : 100%; }
 			.legend { background : white; line-height : 1.5em}
 			.legend i { width : 5em; float : left }
 
@@ -132,7 +134,7 @@ p.solid {outline-style: solid;}
             }
 
         #grad4 {
-            height: auto;
+            height: 40px;
             background-image: linear-gradient(to right, rgba(34,139,34,1),rgba(0,0,0,0), rgba(34,139,34,1));
         }
 
@@ -162,12 +164,12 @@ body {
 
 /* Left and right column */
 .column.side {
-  width:0%;
+  width: 25%;
 }
 
 /* Middle column */
 .column.middle {
-  width: 100%;
+  width: 75%;
 }
 
 /* Clear floats after the columns */
@@ -302,7 +304,7 @@ table, th, td {
                 </div>
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
+                      <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
@@ -324,6 +326,18 @@ table, th, td {
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>All Civil Package</p>
                                     </a>
+                                     <a href="./civilpackage2.html" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Civil Package 2,3,4 </p>
+                                    </a>
+                                     <a href="./civilpackage3.html" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Civil Package 5,6 </p>
+                                    </a>
+                                     <a href="./civilpackage4.html" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Civil Package 7,8</p>
+                                    </a>
                                 </li>
 
                             </ul>
@@ -342,7 +356,7 @@ table, th, td {
             <!-- /.content-header -->
             <!-- Main content -->
     <section class="content" Style="height:20px" id="content">
-          <!--      <div class="container-fluid">
+                <div class="container-fluid">
                     <div class="row mb-8">
                       
                         <div class="col-sm-4">
@@ -355,8 +369,8 @@ table, th, td {
 						<div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div>					
 						<div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	
 					    <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div>	
-                    </div><!-- /.col
-                </div><!-- /.row --> 
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
  
         
 
@@ -366,7 +380,7 @@ table, th, td {
   
   <div class="column middle" style="background-color:#FFFFFF;">
        
-  <div id= "map"></div>
+
  <!-- civil Projects -->
             <div class="card card-danger">
               <div class="card-header" Style="background-color:#a233b0">
@@ -816,7 +830,7 @@ var bar=setInterval(progressBar,50);
                             labels: date,
                             datasets: [
                                    {
-                                    label: 'Certified',
+                                    //label: 'Certified',
                                     fill: false,
                                     backgroundColor: 'rgb(135,206,235)',
                                     borderColor: 'rgb(135,206,235)',
@@ -825,7 +839,7 @@ var bar=setInterval(progressBar,50);
                                     data: Recovered
                                 },
                                 {
-                                    label: 'Completed',
+                                    //label: 'Completed',
                                     fill: false,
                                     backgroundColor: 'rgb(234, 170, 0)',
                                     borderColor: 'rgb(234, 170, 0)',
@@ -836,7 +850,7 @@ var bar=setInterval(progressBar,50);
                                 },
                             
                                 {
-                                    label: 'Target',
+                                    //label: 'Target',
                                     fill: false,
                                     backgroundColor: 'rgb(255, 0, 0)',
                                     borderColor: 'rgb(255, 0, 0)',
@@ -1478,7 +1492,6 @@ if ( defValue < 50 ) {
   });
 }
       </script>
-        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </div>     
         
  </body>

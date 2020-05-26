@@ -57,8 +57,6 @@
 	<script src="./Line Chart_files/Chart.min.js.download"></script>
 	<script src="./Line Chart_files/utils.js.download"></script>
 	
-    
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
      <!-- Progress chart w3schools -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -66,14 +64,6 @@
 	
     <style>
  
-        .dot {
-  height: 20px;
-  width: 20px;
-  background-color: #000000;
-  border-radius: 50%;
-  display: inline-block;
-}
-        
 $bg: teal;
 $meter-size: 2rem;
 .container {
@@ -109,7 +99,7 @@ $meter-size: 2rem;
 }
 	
 	
-#map { height : 100%; }
+#map { height : 50%; }
 			.legend { background : white; line-height : 1.5em}
 			.legend i { width : 5em; float : left }
 
@@ -172,12 +162,12 @@ body {
 
 /* Left and right column */
 .column.side {
-  width: 25%;
+  width:0%;
 }
 
 /* Middle column */
 .column.middle {
-  width: 75%;
+  width: 100%;
 }
 
 /* Clear floats after the columns */
@@ -326,25 +316,13 @@ table, th, td {
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./home.html" class="nav-link ">
+                                    <a href="./home.html" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard</p>
                                     </a>
-                                     <a href="./civilpackage1.html" class="nav-link active">
+                                     <a href="./civilpackage1.html" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>All Civil Package</p>
-                                    </a>
-                                     <a href="./civilpackage2.html" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Civil Package 2,3,4 </p>
-                                    </a>
-                                     <a href="./civilpackage3.html" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Civil Package 5,6 </p>
-                                    </a>
-                                     <a href="./civilpackage4.html" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Civil Package 7,8</p>
                                     </a>
                                 </li>
 
@@ -364,11 +342,11 @@ table, th, td {
             <!-- /.content-header -->
             <!-- Main content -->
     <section class="content" Style="height:20px" id="content">
-                <div class="container-fluid">
+          <!--      <div class="container-fluid">
                     <div class="row mb-8">
                       
                         <div class="col-sm-4">
-                            <h3 class="m-0 text-dark" id="location">Civil Projects (1/4)</h3>	
+                            <h3 class="m-0 text-dark" id="location">MML-3 Overview</h3>	
                         </div>
                           <div class="col-sm-2">
                             </div>
@@ -377,8 +355,8 @@ table, th, td {
 						<div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div>					
 						<div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	
 					    <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div>	
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                    </div><!-- /.col
+                </div><!-- /.row --> 
  
         
 
@@ -388,7 +366,7 @@ table, th, td {
   
   <div class="column middle" style="background-color:#FFFFFF;">
        
-
+  <div id= "map"></div>
  <!-- civil Projects -->
             <div class="card card-danger">
               <div class="card-header" Style="background-color:#a233b0">
@@ -398,7 +376,22 @@ table, th, td {
                             <h7 class="m-0 text-white" id="location">Civil Projects</h7>
                         </div>
 
-                       
+                        <div class="col-sm-5">
+                            <form name="myform">
+                             
+                                <select class="form-control select2" style="width: 100%;" name="mylist" onChange="nav()">
+                                    <option value="Package_1"  selected="selected">Package 1</option>
+                                    <option value="Package_2"  selected="selected">Package 2</option>
+                                    <option value="Package_3"  selected="selected">Package 3</option>
+                                    <option value="Package_4"  selected="selected">Package 4</option>
+                                    <option value="Package_5"  selected="selected">Package 5</option>
+                                    <option value="Package_6"  selected="selected">Package 6</option>
+                                    <option value="Package_7"  selected="selected">Package 7</option>
+                                    <option value="Package_8"  selected="selected">Package 8</option>
+                                     <option value="all"  selected="selected">All Civil Packages</option>
+                                </select>
+                            </form>
+                        </div>
                     </div>
                         <!-- //List -->
                 <div class="card-tools">
@@ -413,201 +406,6 @@ table, th, td {
 		
      <div class="container-fluid">
         <div class="row">
-               <!-- //P1 table -->
-            
-          <div class="col-sm-3">
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P1"> <h5>P1</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-     <br>
-        <!-- //P2 table -->
-         
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P1"> <h5>P2</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-     </div>   
-         <!-- //P3 table -->
-          <div class="col-sm-3">
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P3"> <h5>P3</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-    <br>
-         <!-- //P4 table -->
-
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P4"> <h5>P4</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-     </div> 
-            <br>
-         
-
-                    <!-- //P5 table -->
-          <div class="col-sm-3">
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P5"> <h5>P5</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-
-        <!-- //P6 table -->
-         <br>     
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P6"> <h5>P6</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-     </div>   
-         <!-- //P7 table -->
-          <div class="col-sm-3">
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P7"> <h5>P7</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-     <br>    
-         <!-- //P8 table -->
-        
-            
-              <table>
-                     
-                      <tr>
-                         					
-						
-				       <td><div style="background-color:lightslategray;color:white;padding:4px;" id="P8"> <h5>P8</h5></div></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div></td>
-                       <td><div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	</td>
-                       <td>   <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div></td>
-                       </tr>
-                        <tr>
-                        <td><span class="dot"></span></td>	
-                       <td><div style="background-color:white;color:white;padding:4px;" > <h6> .... </h6></div></td>
-                        <td><span class="dot"></span></td>
-                       <td><span class="dot"></span>	</td>
-                       <td>   <span class="dot"></span></td>
-                         </tr>
-        </table>
-            
-     </div>        
-            <br>
           <div class="col-sm-3">
 
 
@@ -693,7 +491,7 @@ table, th, td {
      
 	   
      
- <!-- Civil package 1 Projects -->
+ <!-- system Projects -->
             <div class="card card-danger">
               <div class="card-header" Style="background-color:#a233b0">
               <!--   <h3 class="card-title">Civil Projects</h3>
@@ -701,10 +499,29 @@ table, th, td {
                   
                   <div class="row mb-8">
                         <div class="col-sm-3">
-                            <h5 class="m-0 text-white" id="location">Package 1</h5>
+                            <h5 class="m-0 text-white" id="location">System Projects</h5>
                         </div>
 
-                      
+                        <div class="col-sm-5">
+                            <form name="myform">
+                          
+                                <select class="form-control select2" style="width: 100%;" name="mylist" onChange="nav()">
+                                <option value="Package_1"  selected="selected">Package 1</option>
+                                    <option value="Package_2"  selected="selected">Package 2</option>
+                                    <option value="Package_3"  selected="selected">Package 3</option>
+                                    <option value="Package_4"  selected="selected">Package 4</option>
+                                    <option value="Package_5"  selected="selected">Package 5</option>
+                                    <option value="Package_6"  selected="selected">Package 6</option>
+                                    <option value="Package_7"  selected="selected">Package 7</option>
+                                    <option value="Package_8"  selected="selected">Package 8</option>
+                                     <option value="Package_9"  selected="selected">Package 9</option>
+                                    <option value="Package_10"  selected="selected">Package 10</option>
+                                    <option value="Package_11"  selected="selected">Package 11</option>
+                                    <option value="Package_12"  selected="selected">Package 12</option>
+                                    <option value="Package_13"  selected="selected">Package 13</option>    <option value="all"  selected="selected">All System Packages</option>
+                                </select>
+                            </form>
+                        </div>
                     </div>
                         <!-- //List -->
                 <div class="card-tools">
@@ -801,14 +618,91 @@ table, th, td {
            </div>
            </div>
           
-    <!-- /// Civil package 1 --> 
+    <!-- ///System Projects --> 
       
+      <!-- Incident -->
+            <div class="card card-danger">
+              <div class="card-header" Style="background-color:#a233b0">
+              <!--   <h3 class="card-title">Civil Projects</h3>
+                    List -->
+                  
+                  <div class="row mb-8">
+                        <div class="col-sm-3">
+                            <h5 class="m-0 text-white" id="location">Incident</h5>
+                        </div>
+
+                        <div class="col-sm-5">
+                            <form name="myform">
+                             
+                                <select class="form-control select2" style="width: 100%;" name="mylist" onChange="nav()">
+                                    <option value="Phase_1"  selected="selected">Last 7 Days</option>
+                                     <option value="Phase_2"  selected="selected">Last 15 Days</option>
+                                     <option value="all"  selected="selected">Last 30 Days</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                        <!-- //List -->
+                <div class="card-tools">
+                 
+                </div>
+              </div>
+           
+              <div class="card-body">
+ 
+
+  
+		
+     <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+
+		  
+		  
+		  <table>
+                     <tr>
+                     <th>Lost Time</th>
+                      <th>Lost Revenue</th>
+                      </tr>
+                      <tr>
+                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>10 Man Months</h9></div></td>
+                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>4%</h9> </div></td>
+                       </tr>
+                      
+                         </table>
+         </div>
+      <!-- Progress Bar -->        
+   <div class="col-md-3">
+        <h5>Rounded Progress Bars</h5>
+ <div class="w3-light-grey w3-round">
+    <div class="w3-container w3-blue w3-round" style="width:60%">60%</div>
+  </div><br>
+
+  <div class="w3-light-grey w3-round-large">
+    <div class="w3-container w3-orange w3-round-large" style="width:55%">55%</div>
+  </div><br>
+
+  <div class="w3-light-grey w3-round-xlarge">
+    <div class="w3-container w3-red w3-round-xlarge" style="width:70%">70%</div>
+  </div>
+ </div>
        
+   <div class="col-md-3">
+        <h5>Rounded Progress Bars3</h5>
+ <canvas id="myCanvas" width="150" height="150"></canvas>
+       
+       
+ </div> 
+         </div>
+            </div>
+           </div>
+            </div>
+    <!-- ///Incident -->      
   </div>
   
 	
-  <div class="column side" style="background-color:#FFFFFF;">
-  <div id= "map"></div></div>
+
  
      </div>    
 
@@ -1583,6 +1477,7 @@ if ( defValue < 50 ) {
   });
 }
       </script>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </div>     
         
  </body>
