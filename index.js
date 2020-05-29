@@ -3,13 +3,18 @@ var scaleType = 'scalebar';
 var scaleBarSteps = 4;
 var scaleBarText = true;
 var control;
-var maha = ol.proj.fromLonLat([78.2787984, 18.7615761]);
-var MP = ol.proj.fromLonLat([73.9278374, 23.9085453]);
+var maha = ol.proj.fromLonLat([72.8, 19]);
 
+
+var classSeries;
+var classColors;
+//color start from
+var colorFrom = 'b5d0ff';
+//color end to
+var colorTo= '00338d';
 
 
 var overviewMapControl = new ol.control.OverviewMap({
-    // see in overviewmap-custom.html to see the custom CSS used
     className: 'ol-overviewmap ol-custom-overviewmap',
     layers: [
         new ol.layer.Vector({
@@ -22,28 +27,15 @@ var overviewMapControl = new ol.control.OverviewMap({
 
     view: new ol.View({
         center: maha,
-        maxZoom: 2,
-        minZoom: 1.7,
-        zoom: 2
+        maxZoom: 10,
+        minZoom: 0,
+        zoom: 10
     }),
     collapseLabel: '\u00BB',
     label: '\u00AB',
     collapsed: false,
 });
 
-
-var classSeries;
-var classColors;
-//color start from
-var colorFrom = 'FFFFFF';
-//color end to
-var colorTo = 'BDC3C7';
-
-
-//color start from
-var colorFromConf = 'b5d0ff';
-//color end to
-var colorToConf = '00338d';
 
 
 var defaultStyle = new ol.style.Style({
@@ -65,12 +57,6 @@ var defaultStyle = new ol.style.Style({
         })
     })
 });
-
-
-
-
-
-//earcthqu clust
 
 var earthquakeFill = new ol.style.Fill({
     color: 'rgba(255, 153, 0, 0.8)'
@@ -230,94 +216,6 @@ function selectStyleFunction(feature, resolution) {
     return styles;
 }
 
-var vectorHosCity = new ol.layer.Vector({
-    title: 'Hospitalized',
-    visible: false,
-    source: new ol.source.Cluster({
-        distance: 40,
-        source: new ol.source.Vector({
-            url: 'Data/kml/City_COVID_19_Hospitalized_Cases.kml',
-            format: new ol.format.KML({
-                extractStyles: false
-            })
-        })
-    }),
-    style: styleFunctionHos
-});
-
-var vectorHosDist = new ol.layer.Vector({
-    title: 'Hospitalized',
-    source: new ol.source.Cluster({
-        distance: 40,
-        source: new ol.source.Vector({
-            url: 'Data/kml/District COVID 19 Hospitalized Cases.kml',
-            format: new ol.format.KML({
-                extractStyles: false
-            })
-        })
-    }),
-    style: styleFunctionHos
-});
-
-
-var vectorRecoDist = new ol.layer.Vector({
-    title: 'Recovered',
-    source: new ol.source.Cluster({
-        distance: 40,
-        source: new ol.source.Vector({
-            url: 'Data/kml/District COVID 19 Recovered Cases.kml',
-            format: new ol.format.KML({
-                extractStyles: false
-            })
-        })
-    }),
-    style: styleFunctionRec
-});
-var vectorRecoCity = new ol.layer.Vector({
-    title: 'Recovered',
-    visible: false,
-    source: new ol.source.Cluster({
-        distance: 40,
-        source: new ol.source.Vector({
-            url: 'Data/kml/City COVID 19 Recovered Cases.kml',
-            format: new ol.format.KML({
-                extractStyles: false
-            })
-        })
-    }),
-    style: styleFunctionRec
-});
-
-var vectorDeceDist = new ol.layer.Vector({
-    title: 'Deceased',
-    source: new ol.source.Cluster({
-        distance: 40,
-        source: new ol.source.Vector({
-            url: 'Data/kml/District COVID 19 Deceased Cases.kml',
-            format: new ol.format.KML({
-                extractStyles: false
-            })
-        })
-    }),
-    style: styleFunctionDece
-});
-
-
-var vectorDeceCity = new ol.layer.Vector({
-    title: 'Deceased',
-    visible: false,
-    source: new ol.source.Cluster({
-        distance: 40,
-        source: new ol.source.Vector({
-            url: 'Data/kml/City COVID 19 Deceased Cases.kml',
-            format: new ol.format.KML({
-                extractStyles: false
-            })
-        })
-    }),
-    style: styleFunctionDece
-});
-
 function styleFunctionConf(feature, resolution) {
     if (resolution != currentResolution) {
         calculateClusterInfo(resolution);
@@ -361,7 +259,7 @@ var vectorConfDist = new ol.layer.Vector({
 });
 var vectorConfCity = new ol.layer.Vector({
     title: 'Confirmed ',
-    visible: false,
+    visible: true,
     source: new ol.source.Cluster({
         distance: 40,
         source: new ol.source.Vector({
@@ -376,6 +274,41 @@ var vectorConfCity = new ol.layer.Vector({
 
 
 
+function scaleControl() {
+    if (scaleType === 'scalebar') {
+        control = new ol.control.ScaleLine({
+            units: 'metric'
+        });
+        return control;
+    }
+    control = new ol.control.ScaleLine({
+        units: 'metric',
+        bar: true,
+        steps: scaleBarSteps,
+        text: scaleBarText,
+        minWidth: 140
+    });
+    return control;
+}
+var style = new ol.style.Style({
+    fill: new ol.style.Fill({
+        color: 'rgba(255, 255, 255, 0.7)'
+    }),
+    stroke: new ol.style.Stroke({
+        color: '#808080',
+        width: 2
+    }),
+    text: new ol.style.Text({
+        font: '12px Calibri,sans-serif',
+        fill: new ol.style.Fill({
+            color: '#000'
+        }),
+        stroke: new ol.style.Stroke({
+            color: '#808080',
+            width: 3
+        })
+    })
+});
 
 
 
@@ -411,7 +344,7 @@ var labelStyle = new ol.style.Style({
 
 var countryStyle = new ol.style.Style({
     fill: new ol.style.Fill({
-        color: '#fff'
+        color: 'rgba(255, 255, 255, 0.7)'
     }),
     stroke: new ol.style.Stroke({
         color: '#afb6bb',
@@ -421,106 +354,638 @@ var countryStyle = new ol.style.Style({
 
 var style = [countryStyle, labelStyle];
 
+var PCMC_Ward = new ol.layer.Vector({
+    title: 'PMC Region',
+    visible: true,
+    source: new ol.source.Vector({
+        url: 'Data/pune/Pune Ward Boundary.geojson',
+        format: new ol.format.GeoJSON()
+    }),
+    style: function (feature) {
+        labelStyle.getText().setText(feature.get('Ward'));
+        return style;
+    }
+});
 
-function scaleControl() {
-    if (scaleType === 'scalebar') {
-        control = new ol.control.ScaleLine({
-            units: 'metric'
+
+var CCC_Ward_mapping = new ol.layer.Vector({
+    title: 'CCC Ward mapping',
+    visible: false,
+    source: new ol.source.Vector({
+        url: 'Data/pune/Pune Ward Boundary.geojson',
+        format: new ol.format.GeoJSON()
+    }),
+    style: function (feature) {
+        var S1 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#ebb93e'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
         });
-        return control;
+
+        var S2 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#80b8e9'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S3 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#e9658f'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S4 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#98bc76'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S5 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#7637a0'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var NOA = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgb(255,0,0)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+
+
+        if (feature.get('CCC_Color_') == "1") {
+            return [S1];
+        } else if (feature.get('CCC_Color_') == "2") {
+            return [S2];
+        }
+        else if (feature.get('CCC_Color_') == "3") {
+            return [S3];
+        }
+        else if (feature.get('CCC_Color_') == "4") {
+            return [S4];
+        }
+        else if (feature.get('CCC_Color_') == "5") {
+            return [S5];
+        }
+        else {
+            return [NOA];
+        }
+
+
+
     }
-    control = new ol.control.ScaleLine({
-        units: 'metric',
-        bar: true,
-        steps: scaleBarSteps,
-        text: scaleBarText,
-        minWidth: 140
-    });
-    return control;
-}
+});
 
 
-var vectorLayer = new ol.layer.Vector({
-    title: 'Maharashtra District wise Population',
+var DCHC_Ward_mapping = new ol.layer.Vector({
+    title: 'DCHC Ward mapping',
     visible: false,
     source: new ol.source.Vector({
-        url: 'Data/Dist_Population.geojson',
+        url: 'Data/pune/Pune Ward Boundary.geojson',
         format: new ol.format.GeoJSON()
     }),
     style: function (feature) {
-        labelStyle.getText().setText(feature.get('DISTRICT'));
-        return style;
+        var S1 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#ebb93e'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+
+        var S2 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#80b8e9'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S3 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#e9658f'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S4 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#98bc76'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S5 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#7637a0'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var NOA = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgb(255,0,0)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+
+
+        if (feature.get('DCHC_Color') == "1") {
+            return [S1];
+        } else if (feature.get('DCHC_Color') == "2") {
+            return [S2];
+        }
+        else if (feature.get('DCHC_Color') == "3") {
+            return [S3];
+        }
+        else if (feature.get('DCHC_Color') == "4") {
+            return [S4];
+        }
+        else if (feature.get('DCHC_Color') == "5") {
+            return [S5];
+        }
+        else {
+            return [NOA];
+        }
+
+
+
     }
 });
-var DistConfCases = new ol.layer.Vector({
-    title: 'District wise cases',
+
+var DHC_Ward_mapping = new ol.layer.Vector({
+    title: 'DHC Ward mapping',
+    visible: false,
     source: new ol.source.Vector({
-        url: 'Data/District_COVID_19_Confirmed_Cases.geojson',
+        url: 'Data/pune/Pune Ward Boundary.geojson',
         format: new ol.format.GeoJSON()
     }),
     style: function (feature) {
-        labelStyle.getText().setText(feature.get('DISTRICT'));
-        return style;
+        var S1 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#ebb93e'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+
+        var S2 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#80b8e9'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S3 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#e9658f'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S4 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#98bc76'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var S5 = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: '#7637a0'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+        var NOA = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgb(255,0,0)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#808080'
+            })
+        });
+
+
+        if (feature.get('DHC_Color') == "1") {
+            return [S1];
+        } else if (feature.get('DHC_Color') == "2") {
+            return [S2];
+        }
+        else if (feature.get('DHC_Color') == "3") {
+            return [S3];
+        }
+        else if (feature.get('DHC_Color') == "4") {
+            return [S4];
+        }
+        else if (feature.get('DHC_Color') == "5") {
+            return [S5];
+        }
+        else {
+            return [NOA];
+        }
+
+
+
     }
 });
 
-var Government_Laboratories = new ol.style.Style({
-    image: new ol.style.Icon(({
-        anchor: [0.3, 12],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        opacity: 1,
-        src: 'Data/govLabs.png'
-    }))
-});
-
-var Government_COVID_19_Hospitals = new ol.style.Style({
-    image: new ol.style.Icon(({
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        opacity: 1,
-        src: 'Data/Government_COVID_19_Hospitals.png'
-    }))
-});
 
 
-var Private_Laboratories = new ol.style.Style({
-    image: new ol.style.Icon(({
+var ccc_point_style = new ol.style.Style({
+    image: new ol.style.Circle({
+        radius: 7,
+        fill: new ol.style.Fill({ color: 'rgb(255,255,0)' }),
+        stroke: new ol.style.Stroke({
+            color: 'rgba(0, 0, 0)', width: 2
+        })
+    })
+})
 
-        anchor: [0.3, 12],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        opacity: 1,
-        src: 'Data/Private_Laboratories.png'
-    }))
-});
-
-
-
-var pvt_labs = new ol.layer.Vector({
-    title: 'Private Laboratories',
-    visible: false,
+var CCC_Point = new ol.layer.Vector({
+    title: 'CCC',
+    visible: true,
     source: new ol.source.Vector({
-        ratio: 0,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/Private_Laboratories.geojson',
+        url: 'Data/pune/CCC.geojson',
         format: new ol.format.GeoJSON(),
     }),
-    style: Private_Laboratories
+    style: ccc_point_style
 });
 
 
-var gov_hospital = new ol.layer.Vector({
-    title: 'Government COVID19 Hospitals',
-    visible: false,
+var dchc_point_style = new ol.style.Style({
+    image: new ol.style.RegularShape({
+        points: 3,
+        radius: 10,
+        angle: 0,
+        fill: new ol.style.Fill({ color: 'rgb(255,0,0)' }),
+        stroke: new ol.style.Stroke({
+            color: 'rgba(0, 0, 0)', width: 2
+        })
+    })
+})
+
+var DCHC_Point = new ol.layer.Vector({
+    title: 'DCHC',
+    visible: true,
     source: new ol.source.Vector({
-        ratio: 0,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/Government_COVID_19_Hospitals.geojson',
+        url: 'Data/pune/DCHC.geojson',
         format: new ol.format.GeoJSON(),
     }),
-    style: Government_COVID_19_Hospitals
+    style: dchc_point_style
 });
+
+
+var dhc_point_style = new ol.style.Style({
+    image: new ol.style.RegularShape({
+        points: 5,
+        radius: 10,
+        radius2: 4,
+        angle: 0,
+        fill: new ol.style.Fill({ color: 'rgb(0,255,0)' }),
+        stroke: new ol.style.Stroke({
+            color: 'rgba(0, 0, 0)', width: 2
+        })
+    })
+})
+
+var DHC_Point = new ol.layer.Vector({
+    title: 'DHC',
+    visible: true,
+    source: new ol.source.Vector({
+        url: 'Data/pune/DHC.geojson',
+        format: new ol.format.GeoJSON(),
+    }),
+    style: dhc_point_style
+});
+
+var CCC_Faility_Mapping = new ol.layer.Vector({
+    title: 'CCC faility mapping',
+    visible: false,
+    source: new ol.source.Vector({
+        url: 'Data/pune/CCC.geojson',
+        format: new ol.format.GeoJSON()
+    }),
+    style: function (feature) {
+        var S1 = new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({ color: '#ebb93e' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+
+        var S2 = new ol.style.Style({
+
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({ color: '#80b8e9' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S3 = new ol.style.Style({
+
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({ color: '#e9658f' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S4 = new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({ color: '#98bc76' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S5 = new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({ color: '#7637a0' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var NOA = new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({ color: 'rgb(255,0,0)' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+
+
+        if (feature.get('Color_Code') == "1") {
+            return [S1];
+        } else if (feature.get('Color_Code') == "2") {
+            return [S2];
+        }
+        else if (feature.get('Color_Code') == "3") {
+            return [S3];
+        }
+        else if (feature.get('Color_Code') == "4") {
+            return [S4];
+        }
+        else if (feature.get('Color_Code') == "5") {
+            return [S5];
+        }
+        else {
+            return [NOA];
+        }
+
+
+
+    }
+});
+
+var DCHC_Faility_Mapping = new ol.layer.Vector({
+    title: 'DCHC faility mapping',
+    visible: false,
+    source: new ol.source.Vector({
+        url: 'Data/pune/DCHC.geojson',
+        format: new ol.format.GeoJSON()
+    }),
+    style: function (feature) {
+        var S1 = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 3,
+                radius: 10,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#ebb93e' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+
+        var S2 = new ol.style.Style({
+
+            image: new ol.style.RegularShape({
+                points: 3,
+                radius: 10,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#80b8e9' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S3 = new ol.style.Style({
+
+            image: new ol.style.RegularShape({
+                points: 3,
+                radius: 10,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#e9658f' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S4 = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 3,
+                radius: 10,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#98bc76' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S5 = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 3,
+                radius: 10,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#7637a0' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var NOA = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 3,
+                radius: 10,
+                angle: 0,
+                fill: new ol.style.Fill({ color: 'rgb(255,0,0)' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+
+
+        if (feature.get('Color_Code') == "1") {
+            return [S1];
+        } else if (feature.get('Color_Code') == "2") {
+            return [S2];
+        }
+        else if (feature.get('Color_Code') == "3") {
+            return [S3];
+        }
+        else if (feature.get('Color_Code') == "4") {
+            return [S4];
+        }
+        else if (feature.get('Color_Code') == "5") {
+            return [S5];
+        }
+        else {
+            return [NOA];
+        }
+
+
+
+    }
+});
+
+
+var DHC_Faility_Mapping = new ol.layer.Vector({
+    title: 'DHC faility mapping',
+    visible: false,
+    source: new ol.source.Vector({
+        url: 'Data/pune/DHC.geojson',
+        format: new ol.format.GeoJSON()
+    }),
+    style: function (feature) {
+        var S1 = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 5,
+                radius: 10,
+                radius2: 4,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#ebb93e' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+
+        var S2 = new ol.style.Style({
+
+            image: new ol.style.RegularShape({
+                points: 5,
+                radius: 10,
+                radius2: 4,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#80b8e9' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S3 = new ol.style.Style({
+
+            image: new ol.style.RegularShape({
+                points: 5,
+                radius: 10,
+                radius2: 4,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#e9658f' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S4 = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 5,
+                radius: 10,
+                radius2: 4,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#98bc76' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var S5 = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 5,
+                radius: 10,
+                radius2: 4,
+                angle: 0,
+                fill: new ol.style.Fill({ color: '#7637a0' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+        var NOA = new ol.style.Style({
+            image: new ol.style.RegularShape({
+                points: 5,
+                radius: 10,
+                radius2: 4,
+                angle: 0,
+                fill: new ol.style.Fill({ color: 'rgb(255,0,0)' }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0)', width: 2
+                })
+            })
+        });
+
+
+        if (feature.get('Color_Code') == "1") {
+            return [S1];
+        } else if (feature.get('Color_Code') == "2") {
+            return [S2];
+        }
+        else if (feature.get('Color_Code') == "3") {
+            return [S3];
+        }
+        else if (feature.get('Color_Code') == "4") {
+            return [S4];
+        }
+        else if (feature.get('Color_Code') == "5") {
+            return [S5];
+        }
+        else {
+            return [NOA];
+        }
+
+
+
+    }
+});
+
+
 
 var pcmc_doctor_style = new ol.style.Style({
     image: new ol.style.Icon(({
@@ -531,7 +996,8 @@ var pcmc_doctor_style = new ol.style.Style({
     }))
 });
 
-var mumbai_containment_Buffer_zone_style = new ol.style.Style({
+
+var pune_containment_Buffer_zone_style = new ol.style.Style({
     fill: new ol.style.Fill({
         color: 'rgba(255, 0, 0,0.4)'
     }),
@@ -552,124 +1018,8 @@ var myStyle = new ol.style.Style({
     })
 })
 
-var pcmcbloodbank = new ol.style.Style({
-    image: new ol.style.Circle({
-        radius: 7,
-        fill: new ol.style.Fill({ color: 'red' }),
-        stroke: new ol.style.Stroke({
-            color: 'rgba(255, 255, 0)', width: 4
-        })
-    })
-})
 
 
-
-var pcmc_bloodbank = new ol.layer.Vector({
-    title: 'PCMC Blood Bank Details',
-    visible: false,
-    source: new ol.source.Vector({
-        ratio: 0,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/PCMC_Blood_Bank.geojson',
-        format: new ol.format.GeoJSON(),
-    }),
-    style: pcmcbloodbank
-});
-
-
-var mumbai_containment_zone = new ol.layer.Vector({
-    title: 'Mumbai Containment Zone',
-    visible: false,
-    source: new ol.source.Vector({
-        ratio: 0,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/Mumbai_Containment_Zone.geojson',
-        format: new ol.format.GeoJSON(),
-    }),
-    style: function (feature) {
-        return myStyle;
-    }
-});
-
-
-
-
-
-
-
-var mumbai_containment_Buffer_zone = new ol.layer.Vector({
-    title: 'mumbai containment Buffer zone',
-    visible: false,
-    source: new ol.source.Vector({
-        ratio: 0,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/Mumbai_Containment_Zone_Buffer.geojson',
-        format: new ol.format.GeoJSON(),
-    }),
-    style: function (feature) {
-        return mumbai_containment_Buffer_zone_style;
-    }
-});
-
-var pcmc_doctor = new ol.layer.Vector({
-    title: 'Pune Doctor Details',
-    visible: false,
-    source: new ol.source.Vector({
-        ratio: 0,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/PCMC Doctors.geojson',
-        format: new ol.format.GeoJSON(),
-    }),
-    style: pcmc_doctor_style
-});
-
-
-
-
-
-
-
-
-
-
-var gov_labs = new ol.layer.Vector({
-    title: 'Government Laboratories',
-    visible: false,
-    source: new ol.source.Vector({
-        ratio: 1,
-        params: { 'LAYERS': 'show:0' },
-        url: 'Data/Government_Laboratories.geojson',
-        format: new ol.format.GeoJSON(),
-    }),
-    style: Government_Laboratories
-})
-
-
-
-var Road = new ol.layer.Tile({
-    title: 'Road (Bing)',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: 'ArMwcis2TGCT6zVWlZwbGBhkv2rF0IZ94AcvJi9aQNpGWsoLHmQ60TT2dQbE1Dyj',
-        imagerySet: 'Road'
-    })
-});
-var RoadOnDemand = new ol.layer.Tile({
-    title: 'RoadOnDemand (Bing)',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: 'ArMwcis2TGCT6zVWlZwbGBhkv2rF0IZ94AcvJi9aQNpGWsoLHmQ60TT2dQbE1Dyj',
-        imagerySet: 'RoadOnDemand'
-    })
-});
-var Aerial = new ol.layer.Tile({
-    title: 'Aerial (Bing)',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: 'ArMwcis2TGCT6zVWlZwbGBhkv2rF0IZ94AcvJi9aQNpGWsoLHmQ60TT2dQbE1Dyj',
-        imagerySet: 'Aerial'
-    })
-});
 var AerialWithLabels = new ol.layer.Tile({
     title: 'AerialWithLabels (Bing)',
     visible: true,
@@ -679,28 +1029,6 @@ var AerialWithLabels = new ol.layer.Tile({
     })
 });
 
-var collinsBart = new ol.layer.Tile({
-    title: 'collinsBart (Bing)',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: 'ArMwcis2TGCT6zVWlZwbGBhkv2rF0IZ94AcvJi9aQNpGWsoLHmQ60TT2dQbE1Dyj',
-        imagerySet: 'collinsBart'
-    })
-});
-
-var ordnanceSurvey = new ol.layer.Tile({
-    title: 'ordnanceSurvey (Bing)',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: 'ArMwcis2TGCT6zVWlZwbGBhkv2rF0IZ94AcvJi9aQNpGWsoLHmQ60TT2dQbE1Dyj',
-        imagerySet: 'ordnanceSurvey'
-    })
-});
-
-
-
-
-
 
 
 var map = new ol.Map({
@@ -709,75 +1037,44 @@ var map = new ol.Map({
         new ol.layer.Group({
             title: 'Base maps',
             type: 'base',
-            fold: 'close',
+            fold: 'open',
             layers: [
                 new ol.layer.Tile({
                     title: 'OSM',
                     visible: false,
                     source: new ol.source.OSM(),
-                }), Aerial, AerialWithLabels, RoadOnDemand, Road, vectorLayer, DistConfCases,
-            ]
+                }), AerialWithLabels]
         }),
-        new ol.layer.Group({
-            // A layer must have a title to appear in the layerswitcher
-            title: 'Containment Zone',
-            // Adding a 'fold' property set to either 'open' or 'close' makes the group layer
-            // collapsible
-            fold: 'close',
-            layers: [mumbai_containment_Buffer_zone, mumbai_containment_zone]
-        }),
+      
+     
 
         new ol.layer.Group({
-            // A layer must have a title to appear in the layerswitcher
-            title: 'City Wise Covid 19 Cases',
+            title: 'Mumbai Metro',
             fold: 'close',
-            layers: [vectorConfCity, vectorHosCity, vectorRecoCity, vectorDeceCity
-            ]
-        }),
-
-        new ol.layer.Group({
-            // A layer must have a title to appear in the layerswitcher
-            title: 'Covid 19 Medical Facility',
-            // Adding a 'fold' property set to either 'open' or 'close' makes the group layer
-            // collapsible
-            fold: 'close',
-            layers: [gov_labs, gov_hospital, pvt_labs, pcmc_bloodbank, pcmc_doctor]
+            
         })
+
     ],
 
     target: 'map',
-    renderer: 'canvas',
     view: new ol.View({
         center: maha,
-        zoom: 6
+        zoom: 11
     })
 });
 
 
-function popData() {
-    var countryPopVals = new Array();
-    vectorLayer.getSource().getFeatures().forEach(function (feat) {
-        countryPopVals.push(feat.get("To_Pop"))
+function wardCases() {
+    var wardConfCases = new Array();
+    PCMC_Ward.getSource().getFeatures().forEach(function (feat) {
+        wardConfCases.push(feat.get("Corona_Pat"))
     });
-    console.info("countryPopVals", countryPopVals);
-    getAndSetClassesFromData(countryPopVals, 6, "method_CJ");
-    vectorLayer.setStyle(setStyle);
+    console.info("wardConfCases", wardConfCases);
+    getAndSetClassesFromDataConf(wardConfCases, 8, "method_CJ");
+    PCMC_Ward.setStyle(setStyle);
 }
 
-
-function distCases() {
-    var countryPopVals = new Array();
-    DistConfCases.getSource().getFeatures().forEach(function (feat) {
-        countryPopVals.push(feat.get("Conf_Cases"))
-    });
-    console.info("countryPopVals", countryPopVals);
-    getAndSetClassesFromDataConf(countryPopVals, 8, "method_CJ");
-    DistConfCases.setStyle(setStyleConf);
-}
-
-
-
-function getAndSetClassesFromData(data, numclasses, method) {
+function getAndSetClassesFromDataConf(data, numclasses, method) {
     var serie = new geostats(data);
     var legenLabel = "";
     if (method === "method_EI") {
@@ -808,41 +1105,9 @@ function getAndSetClassesFromData(data, numclasses, method) {
     classColors = colors_x;
 }
 
-function getAndSetClassesFromDataConf(data, numclasses, method) {
-    var serie = new geostats(data);
-    var legenLabel = "";
-    if (method === "method_EI") {
-        serie.getClassEqInterval(numclasses);
-        methodLabel = "Equal Interval";
-    } else if (method === "method_Q") {
-        serie.getClassQuantile(numclasses);
-        methodLabel = "Quantile";
-    } else if (method === "method_SD") {
-        serie.getClassStdDeviation(numclasses);
-        methodLabel = "Standard Deviation ";
-    } else if (method === "method_AP") {
-        serie.getClassArithmeticProgression(numclasses);
-        methodLabel = "Arithmetic Progression";
-    } else if (method === "method_GP") {
-        serie.getClassGeometricProgression(numclasses);
-        methodLabel = "Geometric Progression ";
-    } else if (method === "method_CJ") {
-        serie.getClassJenks(numclasses);
-        methodLabel = "Class Jenks";
-    } else {
-        alert("error: no such method.")
-    }
-    var colors_x = chroma.scale([colorFromConf, colorToConf]).colors(numclasses)
-
-    serie.setColors(colors_x);
-    classSeries = serie;
-    classColors = colors_x;
-}
-
-
 
 function setStyle(feat, res) {
-    var currVal = parseFloat(feat.get("To_Pop"));
+    var currVal = parseFloat(feat.get("Corona_Pat"));
     var bounds = classSeries.bounds;
     var numRanges = new Array();
     for (var i = 0; i < bounds.length - 1; i++) {
@@ -898,68 +1163,6 @@ function setStyle(feat, res) {
     var style = new ol.style.Style(polyStyleConfig);
     return [style, textStyle];
 }
-
-
-
-function setStyleConf(feat, res) {
-    var currVal = parseFloat(feat.get("Conf_Cases"));
-    var bounds = classSeries.bounds;
-    var numRanges = new Array();
-    for (var i = 0; i < bounds.length - 1; i++) {
-        numRanges.push({
-            min: parseFloat(bounds[i]),
-            max: parseFloat(bounds[i + 1])
-        });
-    }
-    var classIndex = verifyClassFromVal(numRanges, currVal);
-    var polyStyleConfig = {
-        stroke: new ol.style.Stroke({
-            color: 'rgb(35, 165, 235)',
-            width: 1
-        })
-    };
-
-    var textStyleConfig = {};
-    if (classIndex !== -1) {
-        polyStyleConfig = {
-            stroke: new ol.style.Stroke({
-                color: 'RGB(175,182,187)',
-                width: 1
-            }),
-            fill: new ol.style.Stroke({
-                color: hexToRgbA(classColors[classIndex], 0.7)
-            })
-        };
-        textStyleConfig = {
-            text: new ol.style.Text({
-                font: '12px Calibri,sans-serif',
-                fill: new ol.style.Fill({
-                    color: "#000000"
-                }),
-                stroke: new ol.style.Stroke({
-                    color: "#FFFFFF",
-                    width: 2
-                })
-            }),
-            geometry: function (feature) {
-                var retPoint;
-                if (feature.getGeometry().getType() === 'MultiPolygon') {
-                    retPoint = getMaxPoly(feature.getGeometry().getPolygons()).getInteriorPoint();
-                } else if (feature.getGeometry().getType() === 'Polygon') {
-                    retPoint = feature.getGeometry().getInteriorPoint();
-                }
-
-                return retPoint;
-            }
-        }
-    };
-
-    var textStyle = new ol.style.Style(textStyleConfig);
-    var style = new ol.style.Style(polyStyleConfig);
-    return [style, textStyle];
-}
-
-
 
 function verifyClassFromVal(rangevals, val) {
     var retIndex = -1;
@@ -1041,61 +1244,7 @@ function testWhite(x) {
     return white.test(x.charAt(0));
 };
 
-var highlightStyle = new ol.style.Style({
-    stroke: new ol.style.Stroke({
-        color: '#f00',
-        width: 1
-    }),
-    fill: new ol.style.Fill({
-        color: 'rgba(255,0,0,0.1)'
-    }),
-    text: new ol.style.Text({
-        font: '12px Calibri,sans-serif',
-        fill: new ol.style.Fill({
-            color: '#000'
-        }),
-        stroke: new ol.style.Stroke({
-            color: '#f00',
-            width: 3
-        })
-    })
-});
 
-
-var featureOverlay = new ol.layer.Vector({
-    source: new ol.source.Vector(),
-    map: map,
-    style: function (feature) {
-        highlightStyle.getText().setText(feature.get('DISTRICT'));
-        return highlightStyle;
-    }
-});
-
-var highlight;
-var displayFeatureInfo = function (pixel) {
-
-    var feature = map.forEachFeatureAtPixel(pixel, function (feature) {
-        return feature;
-    });
-
-    var info = document.getElementById('');
-    if (feature) {
-        info.innerHTML = feature.get('DISTRICT') + ': ' + feature.get('To_Pop');
-    } else {
-        info.innerHTML = '&nbsp;';
-    }
-
-    if (feature !== highlight) {
-        if (highlight) {
-            featureOverlay.getSource().removeFeature(highlight);
-        }
-        if (feature) {
-            featureOverlay.getSource().addFeature(feature);
-        }
-        highlight = feature;
-    }
-
-};
 
 
 map.addControl(scaleControl());
@@ -1116,8 +1265,6 @@ var distfeature = vectorConfDist.getSource().getFeatures();
 var container = document.getElementById('popup');
 var content_element = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
-
-
 
 closer.onclick = function () {
     overlay.setPosition(undefined);
@@ -1144,75 +1291,68 @@ map.on('click', function (evt) {
         console.info("layer is", obj[1]);
         var feature = obj[0];
         var layer = obj[1];
-        if (layer == pvt_labs) {
+        if (layer == DCHC_Point) {
             var geometry = feature.getGeometry();
             var coord = geometry.getCoordinates();
 
-            var content = '<h5>' + feature.get('Name') + '</h5></br>';
+            var content = '<h5> DCHC: </br>' + feature.get('Name_Cente') + '</h5>';
+            content += '<h6> Catagory: ' + feature.get('Pvt_Govt') + '</h6>';
+            content += '<h6> Capacity: ' + feature.get('Capacity') + '</h6>';
+            content += '<h6> ICU: ' + feature.get('ICU') + '</h6>';
+            content += '<h6> DR Name: ' + feature.get('Dr_Incharg') + '</h6>';
+            content += '<h6> Contact No: ' + feature.get('Mob_No') + '</h6>';
+
+            content_element.innerHTML = content;
+            overlay.setPosition(coord);
+
+        }
+
+
+        else if (layer == DHC_Point) {
+            var geometry = feature.getGeometry();
+            var coord = geometry.getCoordinates();
+
+            var content = '<h5> DHC: </br>' + feature.get('Name_Cente') + '</h5>';
+            content += '<h6> Catagory: ' + feature.get('Pvt_Govt') + '</h6>';
+            content += '<h6> Capacity: ' + feature.get('Capacity') + '</h6>';
+            content += '<h6> ICU: ' + feature.get('ICU') + '</h6>';
+            content += '<h6> DR Name: ' + feature.get('Dr_Incharg') + '</h6>';
+            content += '<h6> Contact No: ' + feature.get('Mob_No') + '</h6>';
+
+            content_element.innerHTML = content;
+            overlay.setPosition(coord);
+
+        }
+
+
+        else if (layer == CCC_Point) {
+            var geometry = feature.getGeometry();
+            var coord = geometry.getCoordinates();
+
+            var content = '<h5> CCC: </br>' + feature.get('Name_Cente') + '</h5>';
+            content += '<h6> Catagory: ' + feature.get('Pvt_Govt') + '</h6>';
+            content += '<h6> Capacity: ' + feature.get('Capacity') + '</h6>';
+            content += '<h6> ICU: ' + feature.get('ICU') + '</h6>';
+            content += '<h6> DR Name: ' + feature.get('Dr_Incharg') + '</h6>';
+            content += '<h6> Contact No: ' + feature.get('Mob_No') + '</h6>';
+
+            content_element.innerHTML = content;
+            overlay.setPosition(coord);
+
+        }
+
+
+        else if (layer == pcmc_med_collages) {
+            var geometry = feature.getGeometry();
+            var coord = geometry.getCoordinates();
+
+            var content = '<h5>' + feature.get('College_Na') + '</h5></br>';
             content += '<h6>' + feature.get('Address') + '</h6></br>';
 
             content_element.innerHTML = content;
             overlay.setPosition(coord);
 
         }
-
-
-        else if (layer == gov_hospital) {
-            var geometry = feature.getGeometry();
-            var coord = geometry.getCoordinates();
-
-            var content = '<h5>' + feature.get('District') + '</h5></br>';
-            content += '<h6>' + feature.get('Address') + '</h6></br>';
-            content += '<h6>' + feature.get('Contact_No') + '</h6>';
-
-            content_element.innerHTML = content;
-            overlay.setPosition(coord);
-
-        }
-
-
-        else if (layer == gov_labs) {
-            var geometry = feature.getGeometry();
-            var coord = geometry.getCoordinates();
-
-            var content = '<h5>' + feature.get('DISTRICT') + '</h5></br>';
-            content += '<h6>' + feature.get('Address') + '</h6></br>';
-
-            content_element.innerHTML = content;
-            overlay.setPosition(coord);
-
-        }
-
-
-
-        else if (layer == pcmc_doctor) {
-            var geometry = feature.getGeometry();
-            var coord = geometry.getCoordinates();
-
-            var content = '<h5>' + feature.get('Name') + '</h5></br>';
-            content += '<h6>' + feature.get('Match_addr') + '</h6></br>';
-            content += '<h6>' + feature.get('USER_Mobil') + '</h6></br>';
-
-            content_element.innerHTML = content;
-            overlay.setPosition(coord);
-
-        }
-
-
-        else if (layer == pcmc_bloodbank) {
-            var geometry = feature.getGeometry();
-            var coord = geometry.getCoordinates();
-
-            var content = '<h5>' + feature.get('Name_of_Bl') + '</h5></br>';
-            content += '<h6>' + feature.get('Address') + '</h6></br>';
-            content += '<h6>' + feature.get('Contact_No') + '</h6></br>';
-
-            content_element.innerHTML = content;
-            overlay.setPosition(coord);
-
-        }
-
-
     }
 
 

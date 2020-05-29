@@ -201,7 +201,7 @@ $meter-size: 2rem;
 }
 	
 	
-#map { height : 70%; }
+#map { height : 80%; }
 			.legend { background : white; line-height : 1.5em}
 			.legend i { width : 5em; float : left }
 
@@ -259,8 +259,8 @@ body {
 /* Create three unequal columns that floats next to each other */
 .column {
   float: left;
-  padding: 3px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  padding: 1px;
+  height: auto;  /*Should be removed. Only for demonstration */
 }
 
 /* Left and right column */
@@ -316,7 +316,7 @@ table, th, td {
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#"><ion-icon name="reorder-three-outline"></ion-icon></a>
                      
                 </li>
 
@@ -411,7 +411,7 @@ table, th, td {
                              with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                             <ion-icon name="home-outline"></ion-icon>
                                 <p>
                                     Home
                                     <i class="right fas fa-angle-left"></i>
@@ -420,7 +420,7 @@ table, th, td {
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="./index.html" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <ion-icon name="ellipse-outline"></ion-icon>
                                         <p>Dashboard</p>
                                     </a>
                                    
@@ -442,33 +442,15 @@ table, th, td {
             <!-- /.content-header -->
             <!-- Main content -->
     <section class="content" Style="height:20px" id="content">
-          <!--      <div class="container-fluid">
-                    <div class="row mb-8">
-                      
-                        <div class="col-sm-4">
-                            <h3 class="m-0 text-dark" id="location">MML-3 Overview</h3>	
-                        </div>
-                          <div class="col-sm-2">
-                            </div>
-                          <div class="col-sm-2">
-                            </div>
-						<div style="background-color:skyblue;color:white;padding:4px;" id="id1"> <h6>68</h6></div>					
-						<div style="background-color:red;color:white;padding:4px;" id="id2"> <h6>59</h6></div>	
-					    <div style="background-color:orange;color:white;padding:4px;" id="id3"> <h6>51</h6></div>	
-                    </div><!-- /.col
-                </div><!-- /.row --> 
- 
-        
-
- 
      		<div class="row">
   
   
   <div class="column middle" style="background-color:#FFFFFF;">
     
   <div id= "map"></div>
+      <div class="pre-scrollable">
  <!-- civil Projects -->
-        <div class="pre-scrollable">
+        
             <div class="card card-danger">
               <div class="card-header" Style="background-color:#a233b0">
                   
@@ -478,9 +460,9 @@ table, th, td {
                         </div>
 
                         <div class="col-sm-5">
-                            <form name="myform">
+                            <form name="myform1">
                              
-                                <select class="form-control select2" style="width: 100%;" name="mylist" onChange="nav()">
+                                <select class="form-control select2" style="width: 100%;" name="mylist1" onChange="navcivil()">
                                     <option value="1"  >Package 1</option>
                                     <option value="2">Package 2</option>
                                     <option value="3">Package 3</option>
@@ -489,7 +471,7 @@ table, th, td {
                                     <option value="6">Package 6</option>
                                     <option value="7">Package 7</option>
                                     <option value="8">Package 8</option>
-                                     <option value="all">All Civil Packages</option>
+                              
                                 </select>
                             </form>
                         </div>
@@ -508,43 +490,62 @@ table, th, td {
 		
      <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm">
 
 
 		  
-		  
-		  <table>
-                     <tr>
-                     <th>Delay Today</th>
-                      <th>Delay Last Month</th>
-                      </tr>
-                      <tr>
-                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>-2 Months</h9></div></td>
-                          
-                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>-3 Months</h9> </div></td>
-                       </tr>
-                        <tr>
-                        <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9></div></td>
-                        <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9> </div></td>
-                         </tr>
-                         </table>
+		<table style="height: 150px;">
+                                                <tr>
+                                                    <th>Delay Today</th>
+                                                    <th>Delay Last Month</th>
+                                                </tr>
+                                                <tr style="background-color: red;">
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9><p>-2 &#8657;</p>Months</h9>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9>-3 Months</h9>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background-color: orange;">
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9><p>-4 &#8660;</p>Months</h9>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9>-4 Months</h9>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+               </div>
+ 
+
+<div class="col-sm">
+               
+  		  <h9 >Progress</h9>
+ 
+<br>
+              <progress   value="18" max="100"> 17% </progress> <br>
+              <label for="file" id="CivilActual">17</label>
+              <label for="file" >% Actual</label>
               <br>
-         
-  		  <h5 >Progress</h5>
-  
- <div class="w3-light-grey w3-round-large">
-    <div class="w3-container w3-blue w3-round-large" style="width:60%" id="CivilActual"></div>
-  </div><br>
-  <div class="w3-light-grey w3-round-large">
-    <div class="w3-container w3-red w3-round-large" style="width:55%" id="CivilCertified">55%</div>
-  </div><br>
-<div class="w3-light-grey w3-round-large">
-    <div class="w3-container w3-orange w3-round-large" style="width:70%" id="CivilPlanned">70%</div>
-  </div>
-	   
-   
-                 
-         
+
+              <progress  style="color: orange" value="15" max="100" > 15% </progress> <br>
+              <label for="file" id="CivilCertified">15</label>
+               <label for="file" >% Certified</label>
+              <br>
+              <progress   value="41.85" max="100"> 41.85% </progress> <br>
+            <label for="file" id="CivilPlanned">41.85</label>
+              <label for="file" >% Planned</label>
+
          </div>
  
 
@@ -557,9 +558,9 @@ table, th, td {
    <!-- S Curv civil -->
              <div class="card">
             <div class="card-body">  
-                   <h5 >S Curv</h5>
+                   <h9 >S Curv</h9>
 	     	<div class="chart">
-               <canvas id="civilscurv" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
+               <canvas id="civilscurv" style="min-height: 130px; height: 130px; max-height: 130px; max-width: 100%;"></canvas>
              </div>
                 
                 
@@ -567,22 +568,20 @@ table, th, td {
             </div>
 </div>  
             
- <div class="col-sm-4">
+ <div class="col-sm">
  
-   <!-- Budget civil -->
+    <!-- Budget civil -->
              <div class="card">
 <div class="card-body">
                   <h9 >Budget</h9>
-                    <!--civilBudget Bar chart Ajax -->
+                    <!--systemBudget Bar chart Ajax -->
                                 
- 
-                                    <div class="card-body">
-                                        <div class="chart">
-                                            <canvas id="civilBudget" style="min-height: 180px; width: 100%; height: 180px; max-height: 100%; max-width: 100%;"></canvas>
-                                        </div>
-                                    </div>
-                                    <!-- /.card-body -->
-                               
+    
+   
+                
+                      <div class="graph_container">
+                      <canvas id="Chart1"></canvas>
+                       </div>
             </div></div>
     </div>   
               </div>
@@ -605,22 +604,22 @@ table, th, td {
                         </div>
 
                         <div class="col-sm-5">
-                            <form name="myform1">
+                            <form name="myform2">
                           
-                                <select class="form-control select2" style="width: 100%;" name="mylist1" onChange="navCivil()">
-                                <option value="Package_1"  >Package 1</option>
-                                    <option value="Package_2"  >Package 2</option>
-                                    <option value="Package_3"  >Package 3</option>
-                                    <option value="Package_4"  >Package 4</option>
-                                    <option value="Package_5"  >Package 5</option>
-                                    <option value="Package_6"  >Package 6</option>
-                                    <option value="Package_7"  >Package 7</option>
-                                    <option value="Package_8"  >Package 8</option>
-                                     <option value="Package_9"  >Package 9</option>
-                                    <option value="Package_10"  >Package 10</option>
-                                    <option value="Package_11"  >Package 11</option>
-                                    <option value="Package_12"  >Package 12</option>
-                                    <option value="Package_13"  >Package 13</option>    <option value="all"  >All System Packages</option>
+                                <select class="form-control select2" style="width: 100%;" name="mylist2" onChange="navsystems()">
+                                <option value="1"  >Package 1</option>
+                                    <option value="2"  >Package 2</option>
+                                    <option value="3"  >Package 3</option>
+                                    <option value="4"  >Package 4</option>
+                                    <option value="5"  >Package 5</option>
+                                    <option value="6"  >Package 6</option>
+                                    <option value="7"  >Package 7</option>
+                                    <option value="8"  >Package 8</option>
+                                     <option value="9"  >Package 9</option>
+                                    <option value="10"  >Package 10</option>
+                                    <option value="11"  >Package 11</option>
+                                    <option value="12"  >Package 12</option>
+                                  
                                 </select>
                             </form>
                         </div>
@@ -638,44 +637,65 @@ table, th, td {
 		
      <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm">
 
 
 		  
 		  
-		  <table>
-                     <tr>
-                     <th>Delay Today</th>
-                      <th>Delay Last Month</th>
-                      </tr>
-                      <tr>
-                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>-2 Months</h9></div></td>
-                          
-                       <td><div style="background-color:red;color:white;padding:1px;"> <h9>-3 Months</h9> </div></td>
-                       </tr>
-                        <tr>
-                        <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9></div></td>
-                        <td><div style="background-color:orange;color:white;padding:1px;"> <h9>-4 Months</h9> </div></td>
-                         </tr>
-                         </table>
+		 <table style="height: 150px;">
+                                                <tr>
+                                                    <th>Delay Today</th>
+                                                    <th>Delay Last Month</th>
+                                                </tr>
+                                                <tr style="background-color: red;">
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9><p>-2 &#8657;</p>Months</h9>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9>-3 Months</h9>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background-color: orange;">
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9><p>-4 &#8660;</p>Months</h9>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="color:white;padding:1px;">
+                                                            <h9>-4 Months</h9>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                        </div>
+ 
+
+<div class="col-sm">
+               
+  		  <h9 >Progress</h9><br>
+ 
+
+              <progress   value="18" max="100"> 17% </progress> <br>
+              <label for="file" id="systemsActual">17</label>
+              <label for="file" >% Actual</label>
               <br>
-         
-  		  <h5 >Progress</h5>
-  
- <div class="w3-light-grey w3-round-large">
-    <div class="w3-container w3-blue w3-round-large" style="width:60%">60%</div>
-  </div><br>
-  <div class="w3-light-grey w3-round-large">
-    <div class="w3-container w3-orange w3-round-large" style="width:55%">55%</div>
-  </div><br>
-<div class="w3-light-grey w3-round-large">
-    <div class="w3-container w3-red w3-round-large" style="width:70%">70%</div>
-  </div>
-	   
-   
-                 
-         
+
+              <progress  style="color: orange" value="15" max="100" > 15% </progress> <br>
+              <label for="file" id="systemsCertified">15</label>
+               <label for="file" >% Certified</label>
+              <br>
+              <progress   value="41.85" max="100"> 41.85% </progress> <br>
+            <label for="file" id="systemsPlanned">41.85</label>
+              <label for="file" >% Planned</label>
+
          </div>
+
  
 
  
@@ -687,9 +707,9 @@ table, th, td {
    <!-- S Curv systemscurv -->
              <div class="card">
             <div class="card-body">  
-                   <h5 >S Curv</h5>
+                   <h9 >S Curv</h9>
 	     	<div class="chart">
-               <canvas id="systemscurv" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
+               <canvas id="systemscurv" style="min-height: 130px; height: 130px; max-height: 130px; max-width: 100%;"></canvas>
              </div>
                 
                 
@@ -697,7 +717,7 @@ table, th, td {
             </div>
 </div>  
             
- <div class="col-sm-4">
+ <div class="col-sm">
  
    <!-- Budget system -->
              <div class="card">
@@ -705,24 +725,29 @@ table, th, td {
                   <h9 >Budget</h9>
                     <!--systemBudget Bar chart Ajax -->
                                 
+    
+   
+                
+                      <div class="graph_container">
+                      <canvas id="Chart2"></canvas>
+                       </div>
+            </div></div>
  
-                                    <div class="card-body">
+                              <!--       <div class="card-body">
                                         <div class="chart">
-                                            <canvas id="systemBudget" style="min-height: 180px; width: 100%; height: 180px; max-height: 100%; max-width: 100%;"></canvas>
+                                            <canvas id="systemBudget" style="min-height: 90px; width: 100%; height: 90px; max-height: 100%; max-width: 100%;"></canvas>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
-                               
-            </div></div>
-    </div>   
+      
+        </div>   
               </div>
             </div>
            </div>
            </div>
           
     <!-- ///System Projects --> 
-      
-      <!-- Incident -->
+       <!-- Incident -->
             <div class="card card-danger">
               <div class="card-header" Style="background-color:#a233b0">
               <!--   <h3 class="card-title">Civil Projects</h3>
@@ -734,9 +759,9 @@ table, th, td {
                         </div>
 
                         <div class="col-sm-5">
-                            <form name="myform2">
+                            <form name="myform3">
                              
-                                <select class="form-control select2" style="width: 100%;" name="mylist2" onChange="nav2()">
+                                <select class="form-control select2" style="width: 100%;" name="mylist3" onChange="nav2()">
                                     <option value="Phase_1"  >Last 7 Days</option>
                                      <option value="Phase_2"  >Last 15 Days</option>
                                      <option value="all"  >Last 30 Days</option>
@@ -798,11 +823,11 @@ table, th, td {
            </div>
             </div>
     <!-- ///Incident -->      
+         
   </div>
   
 	
-  <div class="column side" style="background-color:#FFFFFF;">
-  <div id= "map"></div></div>
+  
  
      </div>    
     </div>
@@ -813,7 +838,7 @@ table, th, td {
 	 
 	
     <!-- ./wrapper -->
-    <footer class="main-footer" Style="position:fixed;  bottom:0; width:100%">
+    <footer class="main-footer" Style="position:fixed;  bottom:0; width:90%">
         <img src="dist/img/binary.png" style="height:auto" data-toggle="tooltip" title="www.evio.in">
         <div class="float-right d-none d-sm-inline-block" Style="color:#00338d">
             <b>Designed by KPMG Disaster Management Team</b>
@@ -864,17 +889,7 @@ table, th, td {
 
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
  <!-- dropdownlist selection -->
-      	        <script>
-
-		
-		function navCivil() {
-            var w = document.myform1.mylist1.selectedIndex;
-            var url_add = document.myform1.mylist1.options[w].value;
-			alert(url_add);
-
-        }
-	        </script>
-
+      	        
 
   
 
@@ -976,10 +991,10 @@ table, th, td {
             });
 	 
 	  
-    		  function nav() {
-            var w = document.myform.mylist.selectedIndex;
-             let url_add = document.myform.mylist.options[w].value;
-			var url = "http://eviothings.in:1880/mmrcl/progress/civil/Phase "+ url_add;
+    		  function navcivil() {
+            var w1 = document.myform1.mylist1.selectedIndex;
+             let url_add1 = document.myform1.mylist1.options[w1].value;
+			var url1 = "http://eviothings.in:1880/mmrcl/progress/civil/Phase "+ url_add1;
 
       
 	
@@ -987,7 +1002,7 @@ table, th, td {
     $.ajax({
 	
 
-				 url: url,
+				 url: url1,
                 type: "GET",
                 success: function (array) {
                     var Month = [];
@@ -1075,7 +1090,7 @@ table, th, td {
             });
 	 }
     </script>
-     <!--   //civil bar chart ajax call-->
+     <!--   //civil bar budget chart ajax call-->
     <script>
     $.ajax({
             url: "http://eviothings.in:1880/covid19/citywise",
@@ -1162,22 +1177,29 @@ table, th, td {
     
     </script>  
              <!--   // systemscurv Line chart ajax call-->
-        <script>
-    
-    $.ajax({
-                url: "http://eviothings.in:1880/covid19/totalCases",
+<script>
+  <!--   // bydefault view ajax call-->
+	   $.ajax({
+	
+
+               // url: "http://eviothings.in:1880/covid19/totalCases",
+				 url: "http://eviothings.in:1880/mmrcl/progress/systems/Phase 2",
                 type: "GET",
-                success: function (data1) {
-                    var date = [];
-                    var Hospitalized = [];
-                    var Recovered = [];
-                    var Deceased = [];
-                    for (var i in data1) {
-                        date.push(data1[i].Date);
-                        Hospitalized.push(data1[i].Hospitalized);
-                        Recovered.push(data1[i].Recovered);
-                        Deceased.push(data1[i].Deceased);
+                success: function (array) {
+                    var Month = [];
+                    var Planned = [];
+                    var Actual = [];
+                    var Certified = [];
+                    for (var i in array) {
+                        Month.push(array[i].Month);
+                        Planned.push(array[i].Planned);
+                        Actual.push(array[i].Actual);
+                        Certified.push(array[i].Certified);
+                        document.getElementById("systemsPlanned").innerHTML = Planned[28]
+                        document.getElementById("systemsActual").innerHTML = Math.max(...Actual)
+                        document.getElementById("systemsCertified").innerHTML = Math.max(...Certified)
                     }
+				//	console.log(Planned[0]);
                     var barChartCanvas = $('#systemscurv').get(0).getContext('2d')
                     var barChartOptions = {
                         responsive: true,
@@ -1192,7 +1214,7 @@ table, th, td {
                                 type: 'linear',
                                 scaleLabel: {
                                     display: false,
-                                    labelString: 'Cases'
+                                    labelString: 'Month'
                                 }
                             }]
                         },
@@ -1211,36 +1233,36 @@ table, th, td {
                     var barChart = new Chart(barChartCanvas, {
                         type: 'line',
                         data: {
-                            labels: date,
+                            labels: Month,
                             datasets: [
                                    {
-                                    label: 'Certified',
+                                    label: 'Actual',
                                     fill: false,
                                     backgroundColor: 'rgb(135,206,235)',
                                     borderColor: 'rgb(135,206,235)',
                                     lineTension: 0.4,
                                     pointRadius: 1.5,
-                                    data: Recovered
+                                    data: Actual
                                 },
                                 {
-                                    label: 'Completed',
+                                    label: 'Planned',
                                     fill: false,
                                     backgroundColor: 'rgb(234, 170, 0)',
                                     borderColor: 'rgb(234, 170, 0)',
 
                                     lineTension: 0.4,
                                     pointRadius: 1.5,
-                                    data: Hospitalized
+                                    data: Planned
                                 },
                             
                                 {
-                                    label: 'Target',
+                                    label: 'Certified',
                                     fill: false,
                                     backgroundColor: 'rgb(255, 0, 0)',
                                     borderColor: 'rgb(255, 0, 0)',
                                     lineTension: 0.4,
                                     pointRadius: 1.5,
-                                    data: Deceased
+                                    data: Certified
                                 }
 
                             ]
@@ -1250,7 +1272,107 @@ table, th, td {
 
                 }
             });
-    </script>
+	 
+	  
+    		  function navsystems() {
+            var w = document.myform2.mylist2.selectedIndex;
+             let url_add = document.myform2.mylist2.options[w].value;
+			var url = "http://eviothings.in:1880/mmrcl/progress/systems/Phase "+ url_add;
+
+      
+	
+	
+    $.ajax({
+	
+
+				 url: url,
+                type: "GET",
+                success: function (array) {
+                    var Month = [];
+                    var Planned = [];
+                    var Actual = [];
+                    var Certified = [];
+                    for (var i in array) {
+                        Month.push(array[i].Month);
+                        Planned.push(array[i].Planned);
+                        Actual.push(array[i].Actual);
+                        Certified.push(array[i].Certified);
+                    }
+              console.log(Planned);
+                    var barChartCanvas = $('#systemscurv').get(0).getContext('2d')
+                    var barChartOptions = {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                type: 'linear',
+                                scaleLabel: {
+                                    display: false,
+                                    labelString: 'Month'
+                                }
+                            }]
+                        },
+                    tooltips: {
+                          mode: 'label'
+                      },
+
+                        plugins: {
+                            datalabels: {
+                                display: false
+                            }
+                        },
+
+                    }
+
+                    var barChart = new Chart(barChartCanvas, {
+                        type: 'line',
+                        data: {
+                            labels: Month,
+                            datasets: [
+                                   {
+                                    label: 'Actual',
+                                    fill: false,
+                                    backgroundColor: 'rgb(135,206,235)',
+                                    borderColor: 'rgb(135,206,235)',
+                                    lineTension: 0.4,
+                                    pointRadius: 1.5,
+                                    data: Actual
+                                },
+                                {
+                                    label: 'Planned',
+                                    fill: false,
+                                    backgroundColor: 'rgb(234, 170, 0)',
+                                    borderColor: 'rgb(234, 170, 0)',
+
+                                    lineTension: 0.4,
+                                    pointRadius: 1.5,
+                                    data: Planned
+                                },
+                            
+                                {
+                                    label: 'Certified',
+                                    fill: false,
+                                    backgroundColor: 'rgb(255, 0, 0)',
+                                    borderColor: 'rgb(255, 0, 0)',
+                                    lineTension: 0.4,
+                                    pointRadius: 1.5,
+                                    data: Certified
+                                }
+
+                            ]
+                        },
+                        options: barChartOptions
+                    })
+
+                }
+            });
+	 }
+            </script>
      <!--   //systemBudget bar chart ajax call-->
     <script>
     $.ajax({
@@ -1341,6 +1463,189 @@ table, th, td {
 	  
 
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+            <!-- //SYSTEM budget civil dummy data-->
+<script>        
+var barOptions_stacked = {
+    tooltips: {
+        enabled: false
+    },
+    hover :{
+        animationDuration:0
+    },
+    scales: {
+        xAxes: [{
+            ticks: {
+                beginAtZero:true,
+                fontFamily: "'Open Sans Bold', sans-serif",
+                fontSize:11
+            },
+            scaleLabel:{
+                display:false
+            },
+            gridLines: {
+            }, 
+            stacked: true
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false,
+                color: "#fff",
+                zeroLineColor: "#fff",
+                zeroLineWidth: 0
+            },
+            ticks: {
+                fontFamily: "'Open Sans Bold', sans-serif",
+                fontSize:11
+            },
+            stacked: true
+        }]
+    },
+    legend:{
+        display:false
+    },
+    
+    animation: {
+        onComplete: function () {
+            var chartInstance = this.chart;
+            var ctx = chartInstance.ctx;
+            ctx.textAlign = "left";
+            ctx.font = "9px Open Sans";
+            ctx.fillStyle = "#fff";
+
+            Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                Chart.helpers.each(meta.data.forEach(function (bar, index) {
+                    data = dataset.data[index];
+                    if(i==0){
+                        ctx.fillText(data, 50, bar._model.y+4);
+                    } else {
+                        ctx.fillText(data, bar._model.x-25, bar._model.y+4);
+                    }
+                }),this)
+            }),this);
+        }
+    },
+    pointLabelFontFamily : "Quadon Extra Bold",
+    scaleFontFamily : "Quadon Extra Bold",
+};
+
+var ctx = document.getElementById("Chart2");
+
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["USD ", "INR "],
+        
+        datasets: [{
+            data: [10, 70],
+            backgroundColor: "rgba(255,127,80,1)",
+            hoverBackgroundColor: "rgba(50,90,100,1)"
+        },{
+            data: [20, 140],
+            backgroundColor: "rgba(163,103,126,1)",
+            hoverBackgroundColor: "rgba(140,85,100,1)"
+        },{
+            data: [30, 210],
+            backgroundColor: "rgba(63,203,226,1)",
+            hoverBackgroundColor: "rgba(46,185,235,1)"
+        }]
+    },
+
+    options: barOptions_stacked,
+});   
+        </script>   
+                        <!-- //SYSTEM budget system dummy data-->
+<script>        
+var barOptions_stacked = {
+    tooltips: {
+        enabled: false
+    },
+    hover :{
+        animationDuration:0
+    },
+    scales: {
+        xAxes: [{
+            ticks: {
+                beginAtZero:true,
+                fontFamily: "'Open Sans Bold', sans-serif",
+                fontSize:11
+            },
+            scaleLabel:{
+                display:false
+            },
+            gridLines: {
+            }, 
+            stacked: true
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false,
+                color: "#fff",
+                zeroLineColor: "#fff",
+                zeroLineWidth: 0
+            },
+            ticks: {
+                fontFamily: "'Open Sans Bold', sans-serif",
+                fontSize:11
+            },
+            stacked: true
+        }]
+    },
+    legend:{
+        display:false
+    },
+    
+    animation: {
+        onComplete: function () {
+            var chartInstance = this.chart;
+            var ctx = chartInstance.ctx;
+            ctx.textAlign = "left";
+            ctx.font = "9px Open Sans";
+            ctx.fillStyle = "#fff";
+
+            Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                Chart.helpers.each(meta.data.forEach(function (bar, index) {
+                    data = dataset.data[index];
+                    if(i==0){
+                        ctx.fillText(data, 50, bar._model.y+4);
+                    } else {
+                        ctx.fillText(data, bar._model.x-25, bar._model.y+4);
+                    }
+                }),this)
+            }),this);
+        }
+    },
+    pointLabelFontFamily : "Quadon Extra Bold",
+    scaleFontFamily : "Quadon Extra Bold",
+};
+
+var ctx = document.getElementById("Chart1");
+ 
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["USD", "INR"],
+        
+        datasets: [{
+            data: [10, 70],
+            backgroundColor: "rgba(255,127,80,1)",
+            hoverBackgroundColor: "rgba(50,90,100,1)"
+        },{
+            data: [20, 140],
+            backgroundColor: "rgba(163,103,126,1)",
+            hoverBackgroundColor: "rgba(140,85,100,1)"
+        },{
+            data: [30, 210],
+            backgroundColor: "rgba(63,203,226,1)",
+            hoverBackgroundColor: "rgba(46,185,235,1)"
+        }]
+    },
+
+    options: barOptions_stacked,
+});   
+        </script>  
+            
       </div>     
        </div>  
  </body>
