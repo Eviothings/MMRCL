@@ -409,6 +409,7 @@
                                             <form name="myform1">
 
                                                 <select class="form-control select2" name="mylist1" onChange="navcivil()">
+                                                    <option value="all">all Package</option>
                                                     <option value="1">Package 1</option>
                                                     <option value="2">Package 2</option>
                                                     <option value="3">Package 3</option>
@@ -533,6 +534,7 @@
                                             <form name="myform2">
 
                                                 <select class="form-control select2" style="width: 100%;" name="mylist2" onChange="navsystems()">
+                                                    <option value="all">all Package</option>
                                                     <option value="1">Package 1</option>
                                                     <option value="2">Package 2</option>
                                                     <option value="3">Package 3</option>
@@ -806,7 +808,7 @@
             $.ajax({
 
 
-                url: "http://eviothings.in:1880/mmrcl/avg_progress/civil",
+                url: "http://eviothings.in:1880/mmrcl/progress/civil/Phase all",
                 type: "GET",
                 success: function (array) {
                     var Month = [];
@@ -933,26 +935,27 @@
             });
             Chart.defaults.global.legend.display = false;
             
-            
- $.ajax({
-                url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 1",
+ <!--   // all  budget -->
+            $.ajax({
+                url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase all",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -972,13 +975,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -987,22 +990,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1010,16 +1002,18 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
             });
+
+            
             function navcivil() {
                 var w1 = document.myform1.mylist1.selectedIndex;
                 let url_add1 = document.myform1.mylist1.options[w1].value;
@@ -1158,25 +1152,27 @@
                     }
                 });
                             
- $.ajax({
+ <!--   //civil  budget -->
+            $.ajax({
                 url: url2,
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1196,13 +1192,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1211,22 +1207,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1234,16 +1219,17 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
             });
+
                   
             }
         </script>
@@ -1255,7 +1241,7 @@
             $.ajax({
 
 
-                url: "http://eviothings.in:1880/mmrcl/avg_progress/systems",
+                url: "http://eviothings.in:1880/mmrcl/progress/systems/Phase all",
                 type: "GET",
                 success: function (array) {
                     var Month = [];
@@ -1382,26 +1368,27 @@
             });
             Chart.defaults.global.legend.display = false;
             
-            
- $.ajax({
-                url: "http://eviothings.in:1880/mmrcl/financials/systems/Phase 1",
+   <!--   //System all  budget -->
+            $.ajax({
+               url: "http://eviothings.in:1880/mmrcl/financials/systems/Phase all",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#systemsbudget').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#systemsbudget').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1421,13 +1408,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1436,22 +1423,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1459,17 +1435,18 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
             });
-            function navsystems() {
+
+           function navsystems() {
                 var w1 = document.myform2.mylist2.selectedIndex;
                 let url_add1 = document.myform2.mylist2.options[w1].value;
                 var url1 = "http://eviothings.in:1880/mmrcl/progress/systems/Phase " + url_add1;
@@ -1607,25 +1584,27 @@
                     }
                 });
                             
- $.ajax({
-                url: url2,
+   <!--   //System all  budget -->
+            $.ajax({
+               url: url2,
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#systemsbudget').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#systemsbudget').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1645,13 +1624,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1660,22 +1639,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1683,12 +1651,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }

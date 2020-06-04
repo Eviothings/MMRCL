@@ -1,4 +1,213 @@
- <!--   //civil 1 scurve--> 
+ <!--   //civil all scurve--> 
+            $.ajax({
+
+                url: "http://eviothings.in:1880/mmrcl/progress/civil/Phase all",
+                type: "GET",
+                success: function (array) {
+                    var Month = [];
+                    var Planned = [];
+                    var Actual = [];
+                    var Certified = [];
+                    for (var i in array) {
+
+                            Month.push(array[i].Month);
+
+                           if (array[i].Planned != 0 ) {
+
+                                Planned.push(array[i].Planned);
+
+                            }
+
+                            else {
+
+                                Planned.push("NaN");
+
+                            }
+
+                            if (array[i].Actual != 0) {
+
+                                Actual.push(array[i].Actual);
+
+                            }
+
+                            else {
+
+                                Actual.push("NaN");
+
+                            }
+
+                            if (array[i].Certified != 0) {
+
+                                Certified.push(array[i].Certified);
+
+                            }
+
+                            else {
+
+                                Certified.push("NaN");
+
+                            }
+                        document.getElementById("cp").innerHTML = Planned[28]
+                        document.getElementById("ca").innerHTML = Actual[28]//Math.max(...Actual)
+                        document.getElementById("cc").innerHTML = Certified[28]//Math.max(...Certified)
+  
+                    }
+                        
+                    
+                    console.log(Planned[1]);
+                    var barChartCanvas = $('#civilscurv').get(0).getContext('2d')
+                    var barChartOptions = {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+            ticks: {
+                max: 100,
+                min: 0,
+                stepSize: 20
+            }
+        }]
+                        },
+                        tooltips: {
+                            mode: 'label'
+                        },
+
+                        plugins: {
+                            datalabels: {
+                                display: false
+                            }
+                        },
+
+                    }
+
+                    var barChart = new Chart(barChartCanvas, {
+                        type: 'line',
+                        data: {
+                            labels: Month,
+                            datasets: [
+                               
+                                {
+                                    label: 'Planned',
+                                    fill: false,
+                                    backgroundColor: 'rgb(0, 145, 218)',
+                                    borderColor: 'rgb(0, 145, 218)',
+
+                                    lineTension: 0.4,
+                                    pointRadius: 1.5,
+                                    data: Planned
+                                },
+                                 {
+                                    label: 'Actual',
+                                    fill: false,
+                                    backgroundColor: 'rgb(255,0,0)',
+                                    borderColor: 'rgb(255,0,0)',
+                                    lineTension: 0.4,
+                                    pointRadius: 1.5,
+                                    data: Actual
+                                },
+                                {
+                                    label: 'Certified',
+                                    fill: false,
+                                    backgroundColor: 'rgb(255, 192, 0)',
+                                    borderColor: 'rgb(255, 192, 0)',
+                                    lineTension: 0.4,
+                                    pointRadius: 1.5,
+                                    data: Certified
+                                }
+
+                            ]
+                        },
+                        options: barChartOptions
+                    })
+
+                }
+            });
+            Chart.defaults.global.legend.display = false;        
+        
+        <!--   //civil all budget -->
+            $.ajax({
+                url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase all",
+                type: "GET",
+                success: function (data) {
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
+                    }
+                    var Namewise= $('#civilbudget').get(0).getContext('2d')
+                    var NamewiseOptions = {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            xAxes: [{
+                                stacked: true,
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }, plugins: {
+                            datalabels: {
+                                display: false
+                            }
+                        },
+                    }
+
+                    var NamewisebarChart = new Chart(Namewise, {
+                        type: 'horizontalBar',
+                        data: {
+                            labels: Name,
+                            datasets: [
+                                {
+                                    label: 'Contract_Value',
+                                    pointRadius: false,
+                                    pointColor: '#3b8bba',
+                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointHighlightFill: '#fff',
+                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+
+                                    backgroundColor: 'rgb(0, 145, 218)',
+                                    borderColor: 'rgb(0, 145, 218)',
+                                    data: Contract_Value
+                                },
+                    
+                                {
+                                    label: 'Jan_20',
+                                    pointRadius: false,
+                                    pointColor: '#3b8bba',
+                                    pointStrokeColor: 'rgb(255, 192, 0)',
+                                    pointHighlightFill: '#fff',
+                                    pointHighlightStroke: 'rgb(255, 192, 0)',
+                                    backgroundColor: 'rgb(255, 192, 0)',
+                                    borderColor: 'rgb(255, 192, 0)',
+                                    data: Jan_20
+                                }
+
+                            ]
+                        },
+                        options: NamewiseOptions
+                    })
+
+                }
+            });
+
+<!--   //civil 1 scurve--> 
             $.ajax({
 
                 url: "http://eviothings.in:1880/mmrcl/progress/civil/Phase 1",
@@ -134,21 +343,22 @@
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 1",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget1').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget1').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -168,13 +378,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -183,22 +393,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -206,12 +405,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -349,26 +548,27 @@
             });
             Chart.defaults.global.legend.display = false;        
         
-        <!--   //civil 2  budget -->
+       <!--   //civil 2  budget -->
             $.ajax({
-                url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 1",
+                url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 2",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget2').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget2').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -388,13 +588,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -403,22 +603,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -426,12 +615,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -567,27 +756,27 @@
                 }
             });
             Chart.defaults.global.legend.display = false;        
-        
-        <!--   //civil 3  budget -->
+      <!--   //civil 3  budget -->
             $.ajax({
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 3",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget3').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget3').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -607,13 +796,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -622,22 +811,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -645,12 +823,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -786,27 +964,27 @@
                 }
             });
             Chart.defaults.global.legend.display = false;        
-        
-        <!--   //civil 4  budget -->
+    <!--   //civil 4  budget -->
             $.ajax({
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 4",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget4').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget4').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -826,13 +1004,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -841,22 +1019,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -864,12 +1031,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -1005,27 +1172,27 @@
                 }
             });
             Chart.defaults.global.legend.display = false;        
-        
-        <!--   //civil 5  budget -->
+      <!--   //civil 5  budget -->
             $.ajax({
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 5",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget5').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget5').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1045,13 +1212,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1060,22 +1227,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1083,12 +1239,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -1224,27 +1380,27 @@
                 }
             });
             Chart.defaults.global.legend.display = false;        
-        
-        <!--   //civil 6  budget -->
+         <!--   //civil 6  budget -->
             $.ajax({
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 6",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget6').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget6').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1264,13 +1420,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1279,22 +1435,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1302,12 +1447,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -1443,27 +1588,27 @@
                 }
             });
             Chart.defaults.global.legend.display = false;        
-        
-        <!--   //civil 7  budget -->
+     <!--   //civil 7  budget -->
             $.ajax({
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 7",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget7').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget7').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1483,13 +1628,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1498,22 +1643,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1521,12 +1655,12 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
@@ -1662,27 +1796,27 @@
                 }
             });
             Chart.defaults.global.legend.display = false;        
-        
-        <!--   //civil 8  budget -->
+     <!--   //civil 8  budget -->
             $.ajax({
                 url: "http://eviothings.in:1880/mmrcl/financials/civil/Phase 8",
                 type: "GET",
                 success: function (data) {
-                    var DateValue = [];
-                    var INR = [];
-                    var USD = [];
-                    var EURO = [];
-                    for (var i in data) {
-                        DateValue.push(data[i].DateValue);
-                        INR.push(data[i].INR);
-                        USD.push(data[i].USD);
-                        EURO.push(data[i].EURO);
+                    //console.log(data);
+                    var Name = [];
+                    var Contract_Value = [];
+                    var Jan_20 = [];
+                    var obj = JSON.parse(data);
+                    
+                    
+                    for (var i in obj) {
+                        //console.log(obj[i].Name);                        
+                        Name.push(obj[i].Name);
+                        Contract_Value.push(obj[i].Contract_Value);
+                        Jan_20.push(obj[i].Jan_20);
+                     
                     }
-                    console.log(DateValue);
-                    console.log(INR);
-                    console.log(USD);
-                    var Datewise= $('#civilbudget8').get(0).getContext('2d')
-                    var DatewiseOptions = {
+                    var Namewise= $('#civilbudget8').get(0).getContext('2d')
+                    var NamewiseOptions = {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
@@ -1702,13 +1836,13 @@
                         },
                     }
 
-                    var DatewisebarChart = new Chart(Datewise, {
+                    var NamewisebarChart = new Chart(Namewise, {
                         type: 'horizontalBar',
                         data: {
-                            labels: DateValue,
+                            labels: Name,
                             datasets: [
                                 {
-                                    label: 'INR',
+                                    label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(0, 145, 218)',
@@ -1717,22 +1851,11 @@
 
                                     backgroundColor: 'rgb(0, 145, 218)',
                                     borderColor: 'rgb(0, 145, 218)',
-                                    data: INR
+                                    data: Contract_Value
                                 },
+                    
                                 {
-                                    label: 'USD',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(255,0,0)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(255,0,0)',
-
-                                    backgroundColor: 'rgb(255,0,0)',
-                                    borderColor: 'rgb(255,0,0)',
-                                    data: USD
-                                },
-                                {
-                                    label: 'EURO',
+                                    label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
                                     pointStrokeColor: 'rgb(255, 192, 0)',
@@ -1740,17 +1863,16 @@
                                     pointHighlightStroke: 'rgb(255, 192, 0)',
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
-                                    data: EURO
+                                    data: Jan_20
                                 }
 
                             ]
                         },
-                        options: DatewiseOptions
+                        options: NamewiseOptions
                     })
 
                 }
             });
 
- 
     
        
