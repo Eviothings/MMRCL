@@ -47,6 +47,38 @@ progress.pbar3::-webkit-progress-value{
   background-color: orange;
 }
 
+table.customtable1{
+  border-collapse: collapse;
+  height: 50%;
+  width: 100%;
+}
+table.customtable1 th{
+  width: 50%;
+  border-right-color: green;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: green;
+}
+table.customtable1 th+th{
+  border-right-color: transparent;
+  border-top-color: transparent ;
+}
+/* table.customtable1 tr{
+  border-right-color: green;
+
+} 
+table.customtable1 tr+tr{
+  border-right-color: ;border-bottom-color: green;
+}  */
+table.customtable1 td{
+  border-right-color: green;
+  border-left-color: transparent;
+  border-bottom-color: green
+}
+table.customtable1 td+td{
+  border-right-color: transparent;
+}
+
 .daterangepicker:before, .daterangepicker:after {
   position: absolute;
   display: inline-block;

@@ -179,10 +179,21 @@
 
 
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid black;
         }
 
+        th, td {
+  padding: 1px;
+}
+th {
+  text-align: center;
+}
+td {
+  text-align: center;
+}
 
         .graph_container {
             display: block;
@@ -402,7 +413,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp"> <h6>41.85</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -422,37 +433,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                         <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -460,16 +483,16 @@
 
                                             <h6>Progress</h6>
                                              <progress  class="pbar1" value="41.85" max="100"> 41.85%</progress> <br>
-                                            <label for="file" id="cp"><h6>41.85</h6></label>
+                                            <label for="file" id="cp"><h6>46.61</h6></label>
                                             <label for="file"><h6>% Planned</h6></label>
                                             
                                             <progress class="pbar2"  value="18" max="100"> 17% </progress> <br>
-                                            <label for="file" id="ca"><h6>17</h6></label>
+                                            <label for="file" id="ca"><h6>17.02</h6></label>
                                             <label for="file"><h6>% Actual</h6></label>
                                             <br>
 
                                             <progress  class="pbar3" style="color: orange" value="15" max="100"> 15% </progress> <br>
-                                            <label for="file" id="cc"><h6>15</h6></label>
+                                            <label for="file" id="cc"><h6>15.63</h6></label>
                                             <label for="file"><h6>% Certified</h6></label>
                                             <br>
                                            
@@ -521,7 +544,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp1"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp1"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca1"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc1"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -541,37 +564,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                     <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -583,7 +618,7 @@
                                             <label for="file"><h6>% Planned</h6></label>
                                             
                                             <progress class="pbar2"  value="18" max="100"> 17% </progress> <br>
-                                            <label for="file" id="ca1"><h6>17</h6></label>
+                                            <label for="file" id="ca1"><h6>15.99</h6></label>
                                             <label for="file"><h6>% Actual</h6></label>
                                             <br>
 
@@ -639,7 +674,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp2"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp2"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca2"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc2"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -659,37 +694,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                 <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -697,16 +744,16 @@
 
                                             <h6>Progress</h6>
                                              <progress  class="pbar1" value="41.85" max="100"> 41.85%</progress> <br>
-                                            <label for="file" id="cp2"><h6>41.85</h6></label>
+                                            <label for="file" id="cp2"><h6>40.58</h6></label>
                                             <label for="file"><h6>% Planned</h6></label>
                                             
                                             <progress  class="pbar2" value="18" max="100"> 17% </progress> <br>
-                                            <label for="file" id="ca2"><h6>17</h6></label>
+                                            <label for="file" id="ca2"><h6>18.04</h6></label>
                                             <label for="file"><h6>% Actual</h6></label>
                                             <br>
 
                                             <progress  class="pbar3" style="color: orange" value="15" max="100"> 15% </progress> <br>
-                                            <label for="file" id="cc2"><h6>15</h6></label>
+                                            <label for="file" id="cc2"><h6>16.26</h6></label>
                                             <label for="file"><h6>% Certified</h6></label>
                                             <br>
                                            
@@ -757,7 +804,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp3"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp3"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca3"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc3"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -777,37 +824,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                        <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -875,7 +934,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp4"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp4"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca4"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc4"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -895,37 +954,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                        <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -993,7 +1064,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp5"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp5"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca5"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc5"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -1013,37 +1084,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                         <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -1111,7 +1194,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp6"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp6"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca6"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc6"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -1131,37 +1214,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                        <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -1229,7 +1324,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp7"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp7"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca7"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc7"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -1249,37 +1344,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                         <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 
@@ -1347,7 +1454,7 @@
                                 <div class="col-sm-5">
                                        </div>   
                                             
-    <div style="background-color:rgb(0, 145, 218);color:white;padding:10px;width: 100px;height: 30px" id="cp8"> <h6>68</h6></div>		
+    <div style="background-color:rgb(0, 0, 255);color:white;padding:10px;width: 100px;height: 30px" id="cp8"> <h6>68</h6></div>		
      <div style="background-color:rgb(255,0,0);color:white;padding:10px;width: 100px;height: 30px" id="ca8"> <h6>59</h6></div>	
 	<div style="background-color:rgb(255, 192, 0);color:white;padding:10px;width: 100px;height: 30px" id="cc8"> <h6>51</h6></div>	
                                        <div class="col-sm">
@@ -1367,37 +1474,49 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <table>
-                                                <tr>
-                                                    <th><h6>Delay Today</h6></th>
-                                                    <th><h6>Delay Last Month</h6></th>
-                                                </tr>
-                                                <tr style="background-color: red;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-2 &#8657;</p>Months</h6>
-                                                        </div>
-                                                    </td>
+                                                         <table class="customtable1">
+                                                    <tr>
+                                                        <th>
+                                                            <h6>Delay Today</h6>
+                                                        </th>
+                                                        <th>
+                                                            <h6>Delay Last Month</h6>
+                                                        </th>
+                                                    </tr>
+                                                    <tr style="background-color: red;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;" id="DPT">-2 &#8657;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
 
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-3 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="background-color: orange;">
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6><p>-4 &#8660;</p>Months</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="color:white;padding:1px;">
-                                                            <h6>-4 Months</h6>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DPL">-3</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="background-color: orange;">
+                                                        <td>
+                                                            <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                    <h6 style="font-size: 25px;"id="DPT">-4 &#8660;</h6>Months
+                                                                </h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                           <div style="color:white;padding:1px; text-align: center;">
+                                                                <h6>
+                                                                <h6 style="font-size: 25px ;"id="DCL">-4</h6>
+                                                                Months</h6>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                         </div>
 
 

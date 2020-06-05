@@ -94,11 +94,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -107,7 +107,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -116,7 +116,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -174,20 +174,7 @@
                         data: {
                             labels: Name,
                             datasets: [
-                                {
-                                    label: 'Contract_Value',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
-
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
-                                    data: Contract_Value
-                                },
-                    
-                                {
+                               {
                                     label: 'Jan_20',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
@@ -198,7 +185,20 @@
                                     borderColor: 'rgb(255, 192, 0)',
                                     data: Jan_20
                                 }
+, {
+                                    label: 'Contract_Value',
+                                    pointRadius: false,
+                                    pointColor: '#3b8bba',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
+                                    pointHighlightFill: '#fff',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
+                                    data: Contract_Value
+                                }
+                    
+                                
                             ]
                         },
                         options: NamewiseOptions
@@ -303,11 +303,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -316,7 +316,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -325,7 +325,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -383,18 +383,7 @@
                         data: {
                             labels: Name,
                             datasets: [
-                                {
-                                    label: 'Contract_Value',
-                                    pointRadius: false,
-                                    pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
-                                    pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
-
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
-                                    data: Contract_Value
-                                },
+                                
                     
                                 {
                                     label: 'Jan_20',
@@ -406,6 +395,17 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     data: Jan_20
+                                },{
+                                    label: 'Contract_Value',
+                                    pointRadius: false,
+                                    pointColor: '#3b8bba',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
+                                    pointHighlightFill: '#fff',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
+
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
+                                    data: Contract_Value
                                 }
 
                             ]
@@ -513,11 +513,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -526,7 +526,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -535,7 +535,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -597,12 +597,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
@@ -722,11 +722,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -735,7 +735,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -744,7 +744,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -805,12 +805,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
@@ -930,11 +930,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -943,7 +943,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -952,7 +952,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -1013,12 +1013,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
@@ -1138,11 +1138,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -1151,7 +1151,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -1160,7 +1160,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -1221,12 +1221,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
@@ -1346,11 +1346,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -1359,7 +1359,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -1368,7 +1368,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -1429,12 +1429,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
@@ -1554,11 +1554,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -1567,7 +1567,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -1576,7 +1576,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -1637,12 +1637,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
@@ -1762,11 +1762,11 @@
                                 {
                                     label: 'Planned',
                                     fill: false,
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
 
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Planned
                                 },
                                  {
@@ -1775,7 +1775,7 @@
                                     backgroundColor: 'rgb(255,0,0)',
                                     borderColor: 'rgb(255,0,0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Actual
                                 },
                                 {
@@ -1784,7 +1784,7 @@
                                     backgroundColor: 'rgb(255, 192, 0)',
                                     borderColor: 'rgb(255, 192, 0)',
                                     lineTension: 0.4,
-                                    pointRadius: 1.5,
+                                    pointRadius: 0.4,
                                     data: Certified
                                 }
 
@@ -1845,12 +1845,12 @@
                                     label: 'Contract_Value',
                                     pointRadius: false,
                                     pointColor: '#3b8bba',
-                                    pointStrokeColor: 'rgb(0, 145, 218)',
+                                    pointStrokeColor: 'rgb(0, 0, 255)',
                                     pointHighlightFill: '#fff',
-                                    pointHighlightStroke: 'rgb(0, 145, 218)',
+                                    pointHighlightStroke: 'rgb(0, 0, 255)',
 
-                                    backgroundColor: 'rgb(0, 145, 218)',
-                                    borderColor: 'rgb(0, 145, 218)',
+                                    backgroundColor: 'rgb(0, 0, 255)',
+                                    borderColor: 'rgb(0, 0, 255)',
                                     data: Contract_Value
                                 },
                     
